@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="ja">
+<head>
+<title>対話エージェント</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-2022-jp">
+<style type="text/css">
+<!--
+a       {text-decoration:none;}
+#link   {text-decoration:none;}
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF">
+<p>Japanese / <a href="index-e.html">English</a></p>
+<h1 align="center">対話エージェント</h1>
+<h2>概要</h2>
+<p>対話事例から対話モデルを学習することで，対話ベースで観光案内を行うエージェントを構築する．本グループでは，観光案内エージェント開発に必要な次の2テーマを進行中である．</p>
+<table width="100%" border="0">
+  <tr>
+    <td width="50%">
+      <div align="center"><img src="fsm.png" width="350" alt="対話モデル" /></div>
+      <div align="center">図1 対話モデル(対話開始時の一部)</div>
+    </td>
+    <td width="50%"> 
+      <h3>1. 事例からの漸次的な対話モデル学習</h3>
+      ある特定のタスクの対話を収集することは困難であるため， 一度に多量の学習データを集めることはできない．したがって，収集された対話事例から対話モデルを学習する場合，事例が増加するごとにその都度学習する必要が生じる．しかし，毎回学習をやり直すのはコストがかかるため，漸次的な学習では差分だけを学習できることが望ましい．<br>
+      本テーマでは，対話モデルとしてPDFA(Probabilistic DFA)を用い，従来研究では提案されなかったPDFAの漸次的学習アルゴリズムを提案し，その効果を従来のアルゴリズムと比較・評価する． 
+      <br>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <div align="center"><img src="woz.png" alt="WOZインタフェース" /></div>
+      <div align="center">図2 WOZインタフェース</div>
+    </td>
+    <td width="50%"> 
+      <h3>2. Wizard of Oz法を用いたデジタルシティの観光案内エージェント</h3>
+      <p> 事例の収集と対話モデルの学習を繰り返すことにより，徐々に対話能力を獲得する観光案内エージェントを構築する．このエージェントの構築は次の2つのステップを繰り返すことにより行われる．</p>
+      <ul>
+        <li>Wizard of Oz法を用いた対話事例収集<br>
+          案内タスクに関する対話をWizard of Oz法を用いて行う．最初，システムの推論結果は当てにならないため，多くの発話をWizardが行うが，対話モデルが成長するに従い，Wizardによる補助はほとんど必要なくなる．</li>
+        <li>事例からの対話モデル学習<br>
+          上述の対話モデル学習アルゴリズムを用いて，事例から現在の対話モデルを学習する．</li>
+      </ul>
+      <p>本テーマでは，これらの機構を備えたWebベースの対話エージェントを実装し，京都の観光案内をテーマに事例収集，学習を行う． <br>
+      </p>
+</td>
+  </tr>
+</table>
+<h2>メンバー</h2>
+<blockquote> 
+  <p>岡本 昌之 (京都大学) okamoto@kuis.kyoto-u.ac.jp</p>
+  <p>山中 信敏 (京都大学) nobutosi@kuis.kyoto-u.ac.jp</p>
+</blockquote>
+<h2>発表論文</h2>
+<ul>
+  <li>
+    Masayuki Okamoto, Yeonsoo Yang and Toru Ishida,
+    ``Wizard of Oz Method for Learning Dialog Agents,''
+    <em>International Workshop on Cooperative Information Agents
+    (CIA-2001)</em>,
+    M. Klusch and F. Zambonelli (Eds.),
+    <em>Cooperative Information Agents V</em>,
+    Lecture Notes in Artificial Intelligence 2182, pp. 20-25,
+    Springer-Verlag, 2001.
+  </li>
+</ul>
+<h2>連絡先</h2>
+<blockquote>
+  <p>dialog-agent@lab7.kuis.kyoto-u.ac.jp</p>
+</blockquote>
+<h2>リンク</h2>
+<blockquote>
+  <p><a href="http://www.lab7.kuis.kyoto-u.ac.jp/j-index.html">京都大学大学院情報学研究科社会情報学専攻 
+    石田研究室</a></p>
+  <p><a href="http://www.digitalcity.jst.go.jp/">科学技術振興事業団 デジタルシティ研究センター</a></p>
+</blockquote>
+<p><a href="http://www.lab7.kuis.kyoto-u.ac.jp/laboratory/projects/dialog-agent/index.html">内部ページ</a> (パスワードが必要)</p>
+</body>
+</html>

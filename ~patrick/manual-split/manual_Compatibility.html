@@ -1,0 +1,1143 @@
+  <HTML>
+  <HEAD>
+  <!-- This HTML file has been created by texi2html 1.52 (hacked by david@detron.se)
+     from /users/mwagner/work/bk/mysql/Docs/manual.texi on 14 June 2001 -->
+
+  <TITLE>MySQL Reference Manual for version 3.23.39. - 5  How Standards-compatible Is MySQL?</TITLE>
+   <style> code {color:purple} tt {color:green} samp {color:navy} pre {color:maroon} </style>
+  </HEAD>
+  <BODY BGCOLOR=silver TEXT=#000000 LINK=#101090 VLINK=#7030B0>
+Go to the <A HREF="manual_Introduction.html">first</A>, <A HREF="manual_Installing.html">previous</A>, <A HREF="manual_Privilege_system.html">next</A>, <A HREF="manual_Concept_Index.html">last</A> section, <A HREF="manual_toc.html">table of contents</A>.
+<P><HR><P>
+
+
+<H1><A NAME="Compatibility" HREF="manual_toc.html#Compatibility">5  How Standards-compatible Is MySQL?</A></H1>
+
+<P>
+This chapter describes how <STRONG>MySQL</STRONG> relates to the ANSI SQL standards.
+<STRONG>MySQL</STRONG> has many extensions to the ANSI SQL standards, and here you
+will find out what they are, and how to use them.  You will also find 
+information about functionality missing from <STRONG>MySQL</STRONG>, and how to work 
+around some differences.  
+
+</P>
+
+
+<H2><A NAME="Extensions_to_ANSI" HREF="manual_toc.html#Extensions_to_ANSI">5.1  MySQL Extensions to ANSI SQL92</A></H2>
+
+<P>
+<STRONG>MySQL</STRONG> includes some extensions that you probably will not find in
+other SQL databases.  Be warned that if you use them, your code will not be
+portable to other SQL servers.  In some cases, you can write code that
+includes <STRONG>MySQL</STRONG> extensions, but is still portable, by using comments
+of the form <CODE>/*! ... */</CODE>.  In this case, <STRONG>MySQL</STRONG> will parse and
+execute the code within the comment as it would any other <STRONG>MySQL</STRONG>
+statement, but other SQL servers will ignore the extensions.  For example:
+
+</P>
+
+<PRE>
+SELECT /*! STRAIGHT_JOIN */ col_name FROM table1,table2 WHERE ...
+</PRE>
+
+<P>
+If you add a version number after the <CODE>'!'</CODE>, the syntax will only be
+executed if the <STRONG>MySQL</STRONG> version is equal to or newer than the used
+version number:
+
+</P>
+
+<PRE>
+CREATE /*!32302 TEMPORARY */ TABLE (a int);
+</PRE>
+
+<P>
+The above means that if you have Version 3.23.02 or newer, then <STRONG>MySQL</STRONG>
+will use the <CODE>TEMPORARY</CODE> keyword.
+
+</P>
+<P>
+<STRONG>MySQL</STRONG> extensions are listed below:
+
+</P>
+
+<UL>
+<LI>
+
+The field types <CODE>MEDIUMINT</CODE>, <CODE>SET</CODE>, <CODE>ENUM</CODE>, and the
+different <CODE>BLOB</CODE> and <CODE>TEXT</CODE> types.
+
+<LI>
+
+The field attributes <CODE>AUTO_INCREMENT</CODE>, <CODE>BINARY</CODE>, <CODE>NULL</CODE>,
+<CODE>UNSIGNED</CODE>, and <CODE>ZEROFILL</CODE>.
+
+<LI>
+
+All string comparisons are case insensitive by default, with sort
+ordering determined by the current character set (ISO-8859-1 Latin1 by
+default).  If you don't like this, you should declare your columns with
+the <CODE>BINARY</CODE> attribute or use the <CODE>BINARY</CODE> cast, which causes
+comparisons to be done according to the ASCII order used on the
+<STRONG>MySQL</STRONG> server host.
+
+<LI>
+
+<STRONG>MySQL</STRONG> maps each database to a directory under the <STRONG>MySQL</STRONG>
+data directory, and tables within a database to filenames in the database
+directory.
+
+This has a few implications:
+
+<A NAME="IDX324"></A>
+<A NAME="IDX325"></A>
+<A NAME="IDX326"></A>
+<A NAME="IDX327"></A>
+
+
+<UL>
+
+<LI>
+
+Database names and table names are case sensitive in <STRONG>MySQL</STRONG> on
+operating systems that have case-sensitive filenames (like most Unix
+systems). See section <A HREF="manual_Reference.html#Name_case_sensitivity">7.1.5.1  Case Sensitivity in Names</A>.
+
+<LI>
+
+Database, table, index, column, or alias names may begin with a digit
+(but may not consist solely of digits).
+
+<LI>
+
+You can use standard system commands to backup, rename, move, delete, and copy
+tables.  For example, to rename a table, rename the <TT>`.MYD'</TT>, <TT>`.MYI'</TT>,
+and <TT>`.frm'</TT> files to which the table corresponds.
+</UL>
+
+<LI>
+
+In SQL statements, you can access tables from different databases
+with the <CODE>db_name.tbl_name</CODE> syntax.  Some SQL servers provide
+the same functionality but call this <CODE>User space</CODE>.
+<STRONG>MySQL</STRONG> doesn't support tablespaces as in:
+<CODE>create table ralph.my_table...IN my_tablespace</CODE>.
+
+<LI>
+
+<CODE>LIKE</CODE> is allowed on numeric columns.
+
+<LI>
+
+Use of <CODE>INTO OUTFILE</CODE> and <CODE>STRAIGHT_JOIN</CODE> in a <CODE>SELECT</CODE>
+statement. See section <A HREF="manual_Reference.html#SELECT">7.19  <CODE>SELECT</CODE> Syntax</A>.
+
+<LI>
+
+The <CODE>SQL_SMALL_RESULT</CODE> option in a <CODE>SELECT</CODE> statement.
+
+<LI>
+
+<CODE>EXPLAIN SELECT</CODE> to get a description on how tables are joined.
+
+<LI>
+
+Use of index names, indexes on a prefix of a field, and use of
+<CODE>INDEX</CODE> or <CODE>KEY</CODE> in a <CODE>CREATE TABLE</CODE>
+statement. See section <A HREF="manual_Reference.html#CREATE_TABLE">7.7  <CODE>CREATE TABLE</CODE> Syntax</A>.
+
+<LI>
+
+Use of <CODE>TEMPORARY</CODE> or <CODE>IF NOT EXISTS</CODE> with <CODE>CREATE TABLE</CODE>.
+
+<LI>
+
+Use of <CODE>COUNT(DISTINCT list)</CODE> where 'list' is more than one element.
+
+<LI>
+
+Use of <CODE>CHANGE col_name</CODE>, <CODE>DROP col_name</CODE>, or <CODE>DROP
+INDEX</CODE>, <CODE>IGNORE</CODE> or <CODE>RENAME</CODE> in an <CODE>ALTER TABLE</CODE>
+statement. See section <A HREF="manual_Reference.html#ALTER_TABLE">7.8  <CODE>ALTER TABLE</CODE> Syntax</A>.
+
+<LI>
+
+Use of <CODE>RENAME TABLE</CODE>. See section <A HREF="manual_Reference.html#RENAME_TABLE">7.9  <CODE>RENAME TABLE</CODE> Syntax</A>.
+
+<LI>
+
+Use of multiple <CODE>ADD</CODE>, <CODE>ALTER</CODE>, <CODE>DROP</CODE>, or <CODE>CHANGE</CODE>
+clauses in an <CODE>ALTER TABLE</CODE> statement.
+
+<LI>
+
+Use of <CODE>DROP TABLE</CODE> with the keywords <CODE>IF EXISTS</CODE>.
+
+<LI>
+
+You can drop multiple tables with a single <CODE>DROP TABLE</CODE> statement.
+
+<LI>
+
+The <CODE>LIMIT</CODE> clause of the <CODE>DELETE</CODE> statement.
+
+<LI>
+
+The <CODE>DELAYED</CODE> clause of the <CODE>INSERT</CODE> and <CODE>REPLACE</CODE>
+statements.
+
+<LI>
+
+The <CODE>LOW_PRIORITY</CODE> clause of the <CODE>INSERT</CODE>, <CODE>REPLACE</CODE>,
+<CODE>DELETE</CODE>, and <CODE>UPDATE</CODE> statements.
+
+<A NAME="IDX328"></A>
+<A NAME="IDX329"></A>
+<LI>
+
+Use of <CODE>LOAD DATA INFILE</CODE>. In many cases, this syntax is compatible with
+Oracle's <CODE>LOAD DATA INFILE</CODE>. See section <A HREF="manual_Reference.html#LOAD_DATA">7.23  <CODE>LOAD DATA INFILE</CODE> Syntax</A>.
+
+<LI>
+
+The <CODE>ANALYZE TABLE</CODE>, <CODE>CHECK TABLE</CODE>, <CODE>OPTIMIZE TABLE</CODE>, and
+<CODE>REPAIR TABLE</CODE> statements.
+
+<LI>
+
+The <CODE>SHOW</CODE> statement.
+See section <A HREF="manual_Reference.html#SHOW">7.28  <CODE>SHOW</CODE> Syntax</A>.
+
+<LI>
+
+Strings may be enclosed by either <SAMP>`"'</SAMP> or <SAMP>`''</SAMP>, not just by <SAMP>`''</SAMP>.
+
+<LI>
+
+Use of the escape <SAMP>`\'</SAMP> character.
+
+<LI>
+
+The <CODE>SET OPTION</CODE> statement. See section <A HREF="manual_Reference.html#SET_OPTION">7.33  <CODE>SET</CODE> Syntax</A>.
+
+<LI>
+
+You don't need to name all selected columns in the <CODE>GROUP BY</CODE> part.
+This gives better performance for some very specific, but quite normal
+queries.
+See section <A HREF="manual_Reference.html#Group_by_functions">7.4.13  Functions for Use with <CODE>GROUP BY</CODE> Clauses</A>.
+
+<LI>
+
+One can specify <CODE>ASC</CODE> and <CODE>DESC</CODE> with <CODE>GROUP BY</CODE>.
+
+<LI>
+
+To make it easier for users who come from other SQL environments,
+<STRONG>MySQL</STRONG> supports aliases for many functions. For example, all
+string functions support both ANSI SQL syntax and ODBC syntax.
+
+<LI>
+
+<STRONG>MySQL</STRONG> understands the <CODE>||</CODE> and <CODE>&#38;&</CODE> operators to mean
+logical OR and AND, as in the C programming language.  In <STRONG>MySQL</STRONG>,
+<CODE>||</CODE> and <CODE>OR</CODE> are synonyms, as are <CODE>&#38;&</CODE> and <CODE>AND</CODE>.
+Because of this nice syntax, <STRONG>MySQL</STRONG> doesn't support
+the ANSI SQL <CODE>||</CODE> operator for string concatenation; use
+<CODE>CONCAT()</CODE> instead. Because <CODE>CONCAT()</CODE> takes any number
+of arguments, it's easy to convert use of the <CODE>||</CODE> operator to
+<STRONG>MySQL</STRONG>.
+
+<LI>
+
+<CODE>CREATE DATABASE</CODE> or <CODE>DROP DATABASE</CODE>.
+See section <A HREF="manual_Reference.html#CREATE_DATABASE">7.5  <CODE>CREATE DATABASE</CODE> Syntax</A>.
+
+<A NAME="IDX330"></A>
+<A NAME="IDX331"></A>
+<LI>
+
+The <CODE>%</CODE> operator is a synonym for <CODE>MOD()</CODE>.  That is,
+<CODE>N % M</CODE> is equivalent to <CODE>MOD(N,M)</CODE>.  <CODE>%</CODE> is supported
+for C programmers and for compatibility with PostgreSQL.
+
+<LI>
+
+The <CODE>=</CODE>, <CODE>&#60;&#62;</CODE>, <CODE>&#60;=</CODE> ,<CODE>&#60;</CODE>, <CODE>&#62;=</CODE>,<CODE>&#62;</CODE>,
+<CODE>&#60;&#60;</CODE>, <CODE>&#62;&#62;</CODE>, <CODE>&#60;=&#62;</CODE>, <CODE>AND</CODE>, <CODE>OR</CODE>, or <CODE>LIKE</CODE>
+operators may be used in column comparisons to the left of the
+<CODE>FROM</CODE> in <CODE>SELECT</CODE> statements.  For example:
+
+
+<PRE>
+mysql&#62; SELECT col1=1 AND col2=2 FROM tbl_name;
+</PRE>
+
+<LI>
+
+The <CODE>LAST_INSERT_ID()</CODE> function.
+See section <A HREF="manual_Clients.html#mysql_insert_id">24.1.3.126  <CODE>mysql_insert_id()</CODE></A>.
+
+<LI>
+
+The <CODE>REGEXP</CODE> and <CODE>NOT REGEXP</CODE> extended regular expression
+operators.
+
+<LI>
+
+<CODE>CONCAT()</CODE> or <CODE>CHAR()</CODE> with one argument or more than two
+arguments.  (In <STRONG>MySQL</STRONG>, these functions can take any number of
+arguments.)
+
+<LI>The <CODE>BIT_COUNT()</CODE>, <CODE>CASE</CODE>, <CODE>ELT()</CODE>,
+
+<CODE>FROM_DAYS()</CODE>, <CODE>FORMAT()</CODE>, <CODE>IF()</CODE>, <CODE>PASSWORD()</CODE>,
+<CODE>ENCRYPT()</CODE>, <CODE>md5()</CODE>, <CODE>ENCODE()</CODE>, <CODE>DECODE()</CODE>,
+<CODE>PERIOD_ADD()</CODE>, <CODE>PERIOD_DIFF()</CODE>, <CODE>TO_DAYS()</CODE>, or
+<CODE>WEEKDAY()</CODE> functions.
+
+<LI>
+
+Use of <CODE>TRIM()</CODE> to trim substrings. ANSI SQL only supports removal
+of single characters.
+
+<LI>
+
+The <CODE>GROUP BY</CODE> functions <CODE>STD()</CODE>, <CODE>BIT_OR()</CODE>, and
+<CODE>BIT_AND()</CODE>.
+
+<LI>
+
+Use of <CODE>REPLACE</CODE> instead of <CODE>DELETE</CODE> + <CODE>INSERT</CODE>.
+See section <A HREF="manual_Reference.html#REPLACE">7.22  <CODE>REPLACE</CODE> Syntax</A>.
+
+<LI>
+
+The <CODE>FLUSH flush_option</CODE> statement.
+
+<LI>
+
+The possibility to set variables in a statement with <CODE>:=</CODE>:
+
+<PRE>
+SELECT @a:=SUM(total),@b=COUNT(*),@a/@b AS avg FROM test_table;
+SELECT @t1:=(@t2:=1)+@t3:=4,@t1,@t2,@t3;
+</PRE>
+
+</UL>
+
+
+
+<H2><A NAME="ANSI_mode" HREF="manual_toc.html#ANSI_mode">5.2  Running MySQL in ANSI Mode</A></H2>
+<P>
+<A NAME="IDX332"></A>
+<A NAME="IDX333"></A>
+
+</P>
+<P>
+If you start <CODE>mysqld</CODE> with the <CODE>--ansi</CODE> option, the following behavior
+of <STRONG>MySQL</STRONG> changes:
+
+</P>
+
+<UL>
+<LI>
+
+<CODE>||</CODE> is string concatenation instead of <CODE>OR</CODE>.
+<LI>
+
+You can have any number of spaces between a function name and the <SAMP>`('</SAMP>.
+This forces all function names to be treated as reserved words.
+<LI>
+
+<SAMP>`"'</SAMP> will be an identifier quote character (like the <STRONG>MySQL</STRONG>
+<SAMP>``'</SAMP> quote character) and not a string quote character.
+<LI>
+
+<CODE>REAL</CODE> will be a synonym for <CODE>FLOAT</CODE> instead of a synonym of
+<CODE>DOUBLE</CODE>.
+<LI>
+
+The default transaction isolation level is <CODE>SERIALIZABLE</CODE>.
+See section <A HREF="manual_Reference.html#SET_TRANSACTION">7.34  <CODE>SET TRANSACTION</CODE> Syntax</A>.
+</UL>
+
+
+
+<H2><A NAME="Differences_from_ANSI" HREF="manual_toc.html#Differences_from_ANSI">5.3  MySQL Differences Compared to ANSI SQL92</A></H2>
+
+<P>
+We try to make <STRONG>MySQL</STRONG> follow the ANSI SQL standard and the
+ODBC SQL standard, but in some cases <STRONG>MySQL</STRONG> does some things
+differently:
+
+</P>
+
+<UL>
+<LI>
+
+<CODE>--</CODE> is only a comment if followed by a white space. See section <A HREF="manual_Compatibility.html#Missing_comments">5.4.7  <SAMP>`--'</SAMP> as the Start of a Comment</A>.
+<LI>
+
+For <CODE>VARCHAR</CODE> columns, trailing spaces are removed when the value is
+stored. See section <A HREF="manual_Bugs.html#Bugs">G  Known errors and design deficiencies in MySQL</A>.
+<LI>
+
+In some cases, <CODE>CHAR</CODE> columns are silently changed to <CODE>VARCHAR</CODE>
+columns. See section <A HREF="manual_Reference.html#Silent_column_changes">7.7.1  Silent Column Specification Changes</A>.
+<LI>
+
+Privileges for a table are not automatically revoked when you delete a
+table. You must explicitly issue a <CODE>REVOKE</CODE> to revoke privileges for
+a table. See section <A HREF="manual_Reference.html#GRANT">7.35  <CODE>GRANT</CODE> and <CODE>REVOKE</CODE> Syntax</A>.
+<LI>
+
+<CODE>NULL AND FALSE</CODE> will evaluate to <CODE>NULL</CODE> and not to <CODE>FALSE</CODE>.
+This is because we don't think it's good to have to evaluate a lot of
+extra conditions in this case.
+</UL>
+
+
+
+<H2><A NAME="Missing_functions" HREF="manual_toc.html#Missing_functions">5.4  Functionality Missing from MySQL</A></H2>
+<P>
+<A NAME="IDX334"></A>
+<A NAME="IDX335"></A>
+
+</P>
+<P>
+The following functionality is missing in the current version of
+<STRONG>MySQL</STRONG>.  For a prioritized list indicating when new extensions
+may be added to <STRONG>MySQL</STRONG>, you should consult
+<a HREF="http://www.mysql.com/documentation/manual.php?section=TODO"> the
+online <STRONG>MySQL</STRONG> TODO list</a>. That is the latest version of the TODO
+list in this manual. See section <A HREF="manual_TODO.html#TODO">H  MySQL and the future (The TODO)</A>.
+
+</P>
+
+
+
+<H3><A NAME="Missing_Sub-selects" HREF="manual_toc.html#Missing_Sub-selects">5.4.1  Sub-selects</A></H3>
+<P>
+<A NAME="IDX336"></A>
+
+</P>
+<P>
+The following will not yet work in <STRONG>MySQL</STRONG>:
+
+</P>
+
+<PRE>
+SELECT * FROM table1 WHERE id IN (SELECT id FROM table2);
+SELECT * FROM table1 WHERE id NOT IN (SELECT id FROM table2);
+SELECT * FROM table1 WHERE NOT EXISTS (SELECT id FROM table2 where table1.id=table2.id);
+</PRE>
+
+<P>
+However, in many cases you can rewrite the query without a sub-select:
+
+</P>
+
+<PRE>
+SELECT table1.* FROM table1,table2 WHERE table1.id=table2.id;
+SELECT table1.* FROM table1 LEFT JOIN table2 ON table1.id=table2.id where table2.id IS NULL
+</PRE>
+
+<P>
+For more complicated subqueries you can often create temporary tables
+to hold the subquery.  In some cases, however this option will not
+work. The most frequently encountered of these cases arises with
+<CODE>DELETE</CODE> statements, for which standard SQL does not support joins
+(except in sub-selects).  For this situation there are two options
+available until subqueries are supported by <STRONG>MySQL</STRONG>.
+
+</P>
+<P>
+The first option is to use a procedural programming language (such as
+Perl or PHP) to submit a <CODE>SELECT</CODE> query to obtain the primary keys
+for the records to be deleted, and then use these values to construct
+the <CODE>DELETE</CODE> statement (<CODE>DELETE FROM ... WHERE ... IN (key1,
+key2, ...)</CODE>).
+
+</P>
+<P>
+The second option is to use interactive SQL to contruct a set of
+<CODE>DELETE</CODE> statements automatically, using the <STRONG>MySQL</STRONG>
+extension <CODE>CONCAT()</CODE> (in lieu of the standard <CODE>||</CODE> operator).
+For example:
+
+</P>
+
+<PRE>
+SELECT CONCAT('DELETE FROM tab1 WHERE pkid = ', tab1.pkid, ';')
+  FROM tab1, tab2
+ WHERE tab1.col1 = tab2.col2;
+</PRE>
+
+<P>
+You can place this query in a script file and redirect input from it to
+the <CODE>mysql</CODE> command-line interpreter, piping its output back to a
+second instance of the interpreter:
+
+</P>
+
+<PRE>
+prompt&#62; mysql --skip-column-names mydb &#60; myscript.sql | mysql mydb
+</PRE>
+
+<P>
+<STRONG>MySQL</STRONG> only supports <CODE>INSERT ... SELECT ...</CODE> and
+<CODE>REPLACE ... SELECT ...</CODE> Independent sub-selects will probably
+be available in Version 4.0.  You can now use the function <CODE>IN()</CODE> in
+other contexts, however.
+
+</P>
+
+
+<H3><A NAME="Missing_SELECT_INTO_TABLE" HREF="manual_toc.html#Missing_SELECT_INTO_TABLE">5.4.2  <CODE>SELECT INTO TABLE</CODE></A></H3>
+<P>
+<A NAME="IDX337"></A>
+
+</P>
+<P>
+<STRONG>MySQL</STRONG> doesn't yet support the Oracle SQL extension:
+<CODE>SELECT ... INTO TABLE ...</CODE>.  <STRONG>MySQL</STRONG> supports instead the
+ANSI SQL syntax <CODE>INSERT INTO ... SELECT ...</CODE>, which is basically
+the same thing. See section <A HREF="manual_Reference.html#INSERT_SELECT">7.21.1  <CODE>INSERT ... SELECT</CODE> Syntax</A>.
+
+</P>
+
+<PRE>
+INSERT INTO tblTemp2 (fldID) SELECT tblTemp1.fldOrder_ID FROM tblTemp1 WHERE
+tblTemp1.fldOrder_ID &#62; 100;
+</PRE>
+
+<P>
+Alternatively, you can use <CODE>SELECT INTO OUTFILE...</CODE> or <CODE>CREATE
+TABLE ... SELECT</CODE> to solve your problem.
+
+</P>
+
+
+<H3><A NAME="Missing_Transactions" HREF="manual_toc.html#Missing_Transactions">5.4.3  Transactions</A></H3>
+<P>
+<A NAME="IDX338"></A>
+
+</P>
+<P>
+As <STRONG>MySQL</STRONG> does nowadays support transactions, the following
+discussion is only valid if you are only using the non-transaction-safe
+table types. See section <A HREF="manual_Reference.html#COMMIT">7.31  <CODE>BEGIN/COMMIT/ROLLBACK</CODE> Syntax</A>.
+
+</P>
+<P>
+The question is often asked, by the curious and the critical, ``Why is
+<STRONG>MySQL</STRONG> not a transactional database?'' or ``Why does <STRONG>MySQL</STRONG>
+not support transactions?''
+
+</P>
+<P>
+<STRONG>MySQL</STRONG> has made a conscious decision to support another paradigm
+for data integrity, ``atomic operations.'' It is our thinking and
+experience that atomic operations offer equal or even better integrity
+with much better performance. We, nonetheless, appreciate and understand
+the transactional database paradigm and plan, within the next few releases,
+to introduce transaction-safe tables on a per table basis. We will be
+giving our users the possibility to decide if they need the speed of
+atomic operations or if they need to use transactional features in their
+applications.
+
+</P>
+<P>
+How does one use the features of <STRONG>MySQL</STRONG> to maintain rigorous integrity
+and how do these features compare with the transactional paradigm?
+
+</P>
+<P>
+First, in the transactional paradigm, if your applications are written
+in a way that is dependent on the calling of ``rollback'' instead of
+``commit'' in critical situations, then transactions are more
+convenient. Moreover, transactions ensure that unfinished updates or
+corrupting activities are not committed to the database; the server is
+given the opportunity to do an automatic rollback and your database is
+saved.
+
+</P>
+<P>
+<STRONG>MySQL</STRONG>, in almost all cases, allows you to solve for potential
+problems by including simple checks before updates and by running simple
+scripts that check the databases for inconsistencies and automatically
+repair or warn if such occurs. Note that just by using the
+<STRONG>MySQL</STRONG> log or even adding one extra log, one can normally fix
+tables perfectly with no data integrity loss.
+
+</P>
+<P>
+Moreover, fatal transactional updates can be rewritten to be
+atomic. In fact,we will go so far as to say that all integrity problems
+that transactions solve can be done with <CODE>LOCK TABLES</CODE> or atomic updates,
+ensuring that you never will get an automatic abort from the database,
+which is a common problem with transactional databases.
+
+</P>
+<P>
+Not even transactions can prevent all loss if the server goes down.  In
+such cases even a transactional system can lose data.  The difference
+between different systems lies in just how small the time-lap is where
+they could lose data. No system is 100% secure, only ``secure
+enough.'' Even Oracle, reputed to be the safest of transactional
+databases, is reported to sometimes lose data in such situations.
+
+</P>
+<P>
+To be safe with <STRONG>MySQL</STRONG>, you only need to have backups and have
+the update logging turned on.  With this you can recover from any
+situation that you could with any transactional database.  It is, of
+course, always good to have backups, independent of which database you
+use.
+
+</P>
+<P>
+The transactional paradigm has its benefits and its drawbacks. Many
+users and application developers depend on the ease with which they can
+code around problems where an abort appears to be, or is necessary, and they
+may have to do a little more work with <STRONG>MySQL</STRONG> to either think
+differently or write more. If you are new to the atomic operations
+paradigm, or more familiar or more comfortable with transactions, do not
+jump to the conclusion that <STRONG>MySQL</STRONG> has not addressed these
+issues. Reliability and integrity are foremost in our minds.  Recent
+estimates indicate that there are more than 1,000,000 <CODE>mysqld</CODE> servers
+currently running, many of which are in production environments.  We
+hear very, very seldom from our users that they have lost any data, and
+in almost all of those cases user error is involved. This is, in our
+opinion, the best proof of <STRONG>MySQL</STRONG>'s stability and reliability.
+
+</P>
+<P>
+Lastly, in situations where integrity is of highest importance,
+<STRONG>MySQL</STRONG>'s current features allow for transaction-level or better
+reliability and integrity. If you lock tables with <CODE>LOCK TABLES</CODE>, all
+updates will stall until any integrity checks are made.  If you only obtain
+a read lock (as opposed to a write lock), then reads and inserts are
+still allowed to happen.  The new inserted records will not be seen by
+any of the clients that have a <CODE>READ</CODE> lock until they release their read
+locks.  With <CODE>INSERT DELAYED</CODE> you can queue inserts into a local queue,
+until the locks are released, without having the client wait for the insert
+to complete. See section <A HREF="manual_Reference.html#INSERT_DELAYED">7.21.2  <CODE>INSERT DELAYED</CODE> syntax</A>.
+
+</P>
+<P>
+``Atomic,'' in the sense that we mean it, is nothing magical. It only means
+that you can be sure that while each specific update is running, no other
+user can interfere with it, and there will never be an automatic
+rollback (which can happen on transaction based systems if you are not
+very careful).  <STRONG>MySQL</STRONG> also guarantees that there will not be
+any dirty reads.  You can find some example of how to write atomic updates
+in the commit-rollback section. See section <A HREF="manual_Compatibility.html#Commit-rollback">5.6  How to Cope Without <CODE>COMMIT</CODE>/<CODE>ROLLBACK</CODE></A>.
+
+</P>
+<P>
+We have thought quite a bit about integrity and performance, and we
+believe that our atomic operations paradigm allows for both high
+reliability and extremely high performance, on the order of three to
+five times the speed of the fastest and most optimally tuned of
+transactional databases. We didn't leave out transactions because they
+are hard to do. The main reason we went with atomic operations as
+opposed to transactions is that by doing this we could apply many speed
+optimizations that would not otherwise have been possible.
+
+</P>
+<P>
+Many of our users who have speed foremost in their minds are not at all
+concerned about transactions. For them transactions are not an
+issue. For those of our users who are concerned with or have wondered
+about transactions vis-a-vis <STRONG>MySQL</STRONG>, there is a ``<STRONG>MySQL</STRONG>
+way'' as we have outlined above.  For those where safety is more
+important than speed, we recommend them to use the <CODE>BDB</CODE>,
+<CODE>GEMINI</CODE> or <CODE>InnoDB</CODE> tables for all their critical
+data. See section <A HREF="manual_Table_types.html#Table_types">8  MySQL Table Types</A>.
+
+</P>
+<P>
+One final note: We are currently working on a safe replication schema
+that we believe to be better than any commercial replication system we
+know of. This system will work most reliably under the atomic
+operations, non-transactional, paradigm. Stay tuned.
+
+</P>
+
+
+<H3><A NAME="Missing_Triggers" HREF="manual_toc.html#Missing_Triggers">5.4.4  Stored Procedures and Triggers</A></H3>
+<P>
+<A NAME="IDX339"></A>
+<A NAME="IDX340"></A>
+<A NAME="IDX341"></A>
+
+</P>
+
+<P>
+A stored procedure is a set of SQL commands that can be compiled and stored
+in the server. Once this has been done, clients don't need to keep reissuing
+the entire query but can refer to the stored procedure. This provides better
+performance because the query has to be parsed only once, and less information
+needs to be sent between the server and the client. You can also raise the
+conceptual level by having libraries of functions in the server.
+
+</P>
+<P>
+A trigger is a stored procedure that is invoked when a particular event
+occurs.  For example, you can install a stored procedure that is triggered
+each time a record is deleted from a transaction table and that automatically
+deletes the corresponding customer from a customer table when all his
+transactions are deleted.
+
+</P>
+<P>
+The planned update language will be able to
+handle stored procedures, but without triggers. Triggers usually slow
+down everything, even queries for which they are not needed.
+
+</P>
+<P>
+To see when <STRONG>MySQL</STRONG> might get stored procedures, see section <A HREF="manual_TODO.html#TODO">H  MySQL and the future (The TODO)</A>.
+
+</P>
+
+
+<H3><A NAME="Missing_Foreign_Keys" HREF="manual_toc.html#Missing_Foreign_Keys">5.4.5  Foreign Keys</A></H3>
+<P>
+<A NAME="IDX342"></A>
+<A NAME="IDX343"></A>
+
+</P>
+<P>
+Note that foreign keys in SQL are not used to join tables, but are used
+mostly for checking referential integrity (foreign key constraints).  If
+you want to get results from multiple tables from a <CODE>SELECT</CODE>
+statement, you do this by joining tables:
+
+</P>
+
+<PRE>
+SELECT * from table1,table2 where table1.id = table2.id;
+</PRE>
+
+<P>
+See section <A HREF="manual_Reference.html#JOIN">7.20  <CODE>JOIN</CODE> Syntax</A>. See section <A HREF="manual_Tutorial.html#example-Foreign_keys">9.5.6  Using Foreign Keys</A>.
+
+</P>
+<P>
+The <CODE>FOREIGN KEY</CODE> syntax in <STRONG>MySQL</STRONG> exists only for compatibility
+with other SQL vendors' <CODE>CREATE TABLE</CODE> commands; it doesn't do
+anything.  The <CODE>FOREIGN KEY</CODE> syntax without <CODE>ON DELETE ...</CODE> is
+mostly used for documentation purposes. Some ODBC applications may use this
+to produce automatic <CODE>WHERE</CODE> clauses, but this is usually easy to
+override. <CODE>FOREIGN KEY</CODE> is sometimes used as a constraint check, but
+this check is unnecessary in practice if rows are inserted into the tables in
+the right order. <STRONG>MySQL</STRONG> only supports these clauses because some
+applications require them to exist (regardless of whether or not they
+work).
+
+</P>
+<P>
+In <STRONG>MySQL</STRONG>, you can work around the problem of <CODE>ON DELETE
+...</CODE> not being implemented by adding the appropriate <CODE>DELETE</CODE> statement to
+an application when you delete records from a table that has a foreign key.
+In practice this is as quick (in some cases quicker) and much more portable
+than using foreign keys.
+
+</P>
+<P>
+In the near future we will extend the <CODE>FOREIGN KEY</CODE> implementation so
+that at least the information will be saved in the table specification file
+and may be retrieved by <CODE>mysqldump</CODE> and ODBC. At a later stage we will
+implement the foreign key constraints for application that can't easily be
+coded to avoid them.
+
+</P>
+
+
+
+<H4><A NAME="Broken_Foreign_KEY" HREF="manual_toc.html#Broken_Foreign_KEY">5.4.5.1  Reasons NOT to Use Foreign Keys constraints</A></H4>
+<P>
+<A NAME="IDX344"></A>
+
+</P>
+<P>
+There are so many problems with foreign key constraints that we don't
+know where to start:
+
+</P>
+
+<UL>
+<LI>
+
+Foreign key constraints make life very complicated, because the foreign
+key definitions must be stored in a database and implementing them would
+destroy the whole ``nice approach'' of using files that can be moved,
+copied, and removed.
+
+<LI>
+
+The speed impact is terrible for <CODE>INSERT</CODE> and <CODE>UPDATE</CODE>
+statements, and in this case almost all <CODE>FOREIGN KEY</CODE> constraint
+checks are useless because you usually insert records in the right
+tables in the right order, anyway.
+
+<LI>
+
+There is also a need to hold locks on many more tables when updating one
+table, because the side effects can cascade through the entire database. It's
+MUCH faster to delete records from one table first and subsequently delete
+them from the other tables.
+
+<LI>
+
+You can no longer restore a table by doing a full delete from the table
+and then restoring all records (from a new source or from a backup).
+
+<LI>
+
+If you use foreign key constraints you can't dump and restore tables
+unless you do so in a very specific order.
+
+<LI>
+
+It's very easy to do ``allowed'' circular definitions that make the
+tables impossible to re-create each table with a single create statement,
+even if the definition works and is usable.
+
+<LI>
+
+It's very easy to overlook <CODE>FOREIGN KEY ... ON DELETE</CODE> rules when
+one codes an application. It's not unusual that one loses a lot of
+important information just because a wrong or misused <CODE>ON DELETE</CODE> rule.
+</UL>
+
+<P>
+The only nice aspect of <CODE>FOREIGN KEY</CODE> is that it gives ODBC and some
+other client programs the ability to see how a table is connected and to use
+this to show connection diagrams and to help in building applications.
+
+</P>
+<P>
+<STRONG>MySQL</STRONG> will soon store <CODE>FOREIGN KEY</CODE> definitions so that a
+client can ask for and receive an answer about how the original
+connection was made. The current <TT>`.frm'</TT> file format does not have
+any place for it.  At a later stage we will implement the foreign key
+constraints for application that can't easily be coded to avoid them.
+
+</P>
+
+
+<H3><A NAME="Missing_Views" HREF="manual_toc.html#Missing_Views">5.4.6  Views</A></H3>
+<P>
+<A NAME="IDX345"></A>
+
+</P>
+<P>
+<STRONG>MySQL</STRONG> doesn't yet support views, but we plan to implement these
+to about 4.1.
+
+</P>
+<P>
+Views are mostly useful for letting users access a set of relations as one
+table (in read-only mode).  Many SQL databases don't allow one to update
+any rows in a view, but you have to do the updates in the separate tables.
+
+</P>
+<P>
+As <STRONG>MySQL</STRONG> is mostly used in applications and on web system where
+the application writer has full control on the database usage, most of
+our users haven't regarded views to be very important. (At least no one
+has been interested enough in this to be prepared to finance the
+implementation of views).
+
+</P>
+<P>
+One doesn't need views in <STRONG>MySQL</STRONG> to restrict access to columns
+as <STRONG>MySQL</STRONG> has a very sophisticated privilege
+system. See section <A HREF="manual_Privilege_system.html#Privilege_system">6  The MySQL Access Privilege System</A>.
+
+</P>
+
+
+<H3><A NAME="Missing_comments" HREF="manual_toc.html#Missing_comments">5.4.7  <SAMP>`--'</SAMP> as the Start of a Comment</A></H3>
+<P>
+<A NAME="IDX346"></A>
+<A NAME="IDX347"></A>
+
+</P>
+<P>
+Some other SQL databases use <SAMP>`--'</SAMP> to start comments. <STRONG>MySQL</STRONG>
+has <SAMP>`#'</SAMP> as the start comment character, even if the <CODE>mysql</CODE>
+command-line tool removes all lines that start with <SAMP>`--'</SAMP>.
+You can also use the C comment style <CODE>/* this is a comment */</CODE> with
+<STRONG>MySQL</STRONG>.
+See section <A HREF="manual_Reference.html#Comments">7.38  Comment Syntax</A>.
+
+</P>
+<P>
+<STRONG>MySQL</STRONG> Version 3.23.3 and above supports the <SAMP>`--'</SAMP> comment style
+only if the comment is followed by a space.  This is because this
+degenerate comment style has caused many problems with automatically
+generated SQL queries that have used something like the following code,
+where we automatically insert the value of the payment for
+<CODE>!payment!</CODE>:
+
+</P>
+
+<PRE>
+UPDATE tbl_name SET credit=credit-!payment!
+</PRE>
+
+<P>
+What do you think will happen when the value of <CODE>payment</CODE> is negative?
+
+</P>
+<P>
+Because <CODE>1--1</CODE> is legal in SQL, we think it is terrible that
+<SAMP>`--'</SAMP> means start comment.
+
+</P>
+<P>
+In <STRONG>MySQL</STRONG> Version 3.23 you can, however, use:
+<CODE>1-- This is a comment</CODE>
+
+</P>
+<P>
+The following discussion only concerns you if you are running a <STRONG>MySQL</STRONG>
+version earlier than Version 3.23:
+
+</P>
+<P>
+If you have a SQL program in a text file that contains <SAMP>`--'</SAMP> comments
+you should use:
+
+</P>
+
+<PRE>
+shell&#62; replace " --" " #" &#60; text-file-with-funny-comments.sql \
+         | mysql database
+</PRE>
+
+<P>
+instead of the usual:
+
+</P>
+
+<PRE>
+shell&#62; mysql database &#60; text-file-with-funny-comments.sql
+</PRE>
+
+<P>
+You can also edit the command file ``in place'' to change the <SAMP>`--'</SAMP>
+comments to <SAMP>`#'</SAMP> comments:
+
+</P>
+
+<PRE>
+shell&#62; replace " --" " #" -- text-file-with-funny-comments.sql
+</PRE>
+
+<P>
+Change them back with this command:
+
+</P>
+
+<PRE>
+shell&#62; replace " #" " --" -- text-file-with-funny-comments.sql
+</PRE>
+
+
+
+<H2><A NAME="Standards" HREF="manual_toc.html#Standards">5.5  What Standards Does MySQL Follow?</A></H2>
+
+<P>
+Entry level SQL92. ODBC levels 0-2.
+
+</P>
+
+
+<H2><A NAME="Commit-rollback" HREF="manual_toc.html#Commit-rollback">5.6  How to Cope Without <CODE>COMMIT</CODE>/<CODE>ROLLBACK</CODE></A></H2>
+<P>
+<A NAME="IDX348"></A>
+<A NAME="IDX349"></A>
+<A NAME="IDX350"></A>
+<A NAME="IDX351"></A>
+<A NAME="IDX352"></A>
+<A NAME="IDX353"></A>
+<A NAME="IDX354"></A>
+<A NAME="IDX355"></A>
+
+</P>
+<P>
+The following mostly applies only for <CODE>ISAM</CODE>, <CODE>MyISAM</CODE>, and
+<CODE>HEAP</CODE> tables. If you only use transaction-safe tables (<CODE>BDB</CODE>,
+<CODE>GEMINI</CODE> or <CODE>InnoDB</CODE> tables) in an an update, you can do
+<CODE>COMMIT</CODE> and <CODE>ROLLBACK</CODE> also with <STRONG>MySQL</STRONG>.
+See section <A HREF="manual_Reference.html#COMMIT">7.31  <CODE>BEGIN/COMMIT/ROLLBACK</CODE> Syntax</A>.
+
+</P>
+<P>
+The problem with handling <CODE>COMMIT</CODE>-<CODE>ROLLBACK</CODE> efficiently with
+the above table types would require a completely different table layout
+than <STRONG>MySQL</STRONG> uses today.  The table type would also need extra
+threads that do automatic cleanups on the tables, and the disk usage
+would be much higher. This would make these table types about 2-4 times
+slower than they are today.
+
+</P>
+<P>
+For the moment, we prefer implementing the SQL server language (something
+like stored procedures). With this you would very seldom really need
+<CODE>COMMIT</CODE>-<CODE>ROLLBACK.</CODE> This would also give much better performance.
+
+</P>
+<P>
+Loops that need transactions normally can be coded with the help of
+<CODE>LOCK TABLES</CODE>, and you don't need cursors when you can update records
+on the fly.
+
+</P>
+<P>
+We at TcX had a greater need for a real fast database than a 100%
+general database. Whenever we find a way to implement these features without
+any speed loss, we will probably do it. For the moment, there are many more
+important things to do. Check the TODO for how we prioritize things at
+the moment. (Customers with higher levels of support can alter this, so
+things may be reprioritized.)
+
+</P>
+<P>
+The current problem is actually <CODE>ROLLBACK</CODE>. Without
+<CODE>ROLLBACK</CODE>, you can do any kind of <CODE>COMMIT</CODE> action with
+<CODE>LOCK TABLES</CODE>. To support <CODE>ROLLBACK</CODE> with the above table
+types, <STRONG>MySQL</STRONG> would have to be changed to store all old records
+that were updated and revert everything back to the starting point if
+<CODE>ROLLBACK</CODE> was issued. For simple cases, this isn't that hard to do
+(the current <CODE>isamlog</CODE> could be used for this purpose), but it
+would be much more difficult to implement <CODE>ROLLBACK</CODE> for
+<CODE>ALTER/DROP/CREATE TABLE</CODE>.
+
+</P>
+<P>
+To avoid using <CODE>ROLLBACK</CODE>, you can use the following strategy:
+
+</P>
+
+<OL>
+<LI>
+
+Use <CODE>LOCK TABLES ...</CODE> to lock all the tables you want to access.
+<LI>
+
+Test conditions.
+<LI>
+
+Update if everything is okay.
+<LI>
+
+Use <CODE>UNLOCK TABLES</CODE> to release your locks.
+</OL>
+
+<P>
+This is usually a much faster method than using transactions with possible
+<CODE>ROLLBACK</CODE>s, although not always. The only situation this solution
+doesn't handle is when someone kills the threads in the middle of an
+update. In this case, all locks will be released but some of the updates may
+not have been executed.
+
+</P>
+<P>
+You can also use functions to update records in a single operation.
+You can get a very efficient application by using the following techniques:
+
+</P>
+
+<UL>
+<LI>Modify fields relative to their current value.
+
+<LI>Update only those fields that actually have changed.
+
+</UL>
+
+<P>
+For example, when we are doing updates to some customer information, we
+update only the customer data that has changed and test only that none of
+the changed data, or data that depend on the changed data, has changed
+compared to the original row. The test for changed data is done with the
+<CODE>WHERE</CODE> clause in the <CODE>UPDATE</CODE> statement. If the record wasn't
+updated, we give the client a message: "Some of the data you have changed
+have been changed by another user". Then we show the old row versus the new
+row in a window, so the user can decide which version of the customer record
+he should use.
+
+</P>
+<P>
+This gives us something that is similar to column locking but is actually
+even better, because we only update some of the columns, using values that
+are relative to their current values.  This means that typical <CODE>UPDATE</CODE>
+statements look something like these:
+
+</P>
+
+<PRE>
+UPDATE tablename SET pay_back=pay_back+'relative change';
+
+UPDATE customer
+  SET
+    customer_date='current_date',
+    address='new address',
+    phone='new phone',
+    money_he_owes_us=money_he_owes_us+'new_money'
+  WHERE
+    customer_id=id AND address='old address' AND phone='old phone';
+</PRE>
+
+<P>
+As you can see, this is very efficient and works even if another client has
+changed the values in the <CODE>pay_back</CODE> or <CODE>money_he_owes_us</CODE> columns.
+
+</P>
+<P>
+<A NAME="IDX356"></A>
+<A NAME="IDX357"></A>
+In many cases, users have wanted <CODE>ROLLBACK</CODE> and/or <CODE>LOCK
+TABLES</CODE> for the purpose of managing unique identifiers for some tables. This
+can be handled much more efficiently by using an <CODE>AUTO_INCREMENT</CODE> column
+and either the SQL function <CODE>LAST_INSERT_ID()</CODE> or the C API function
+<CODE>mysql_insert_id()</CODE>. See section <A HREF="manual_Clients.html#mysql_insert_id">24.1.3.126  <CODE>mysql_insert_id()</CODE></A>.
+
+</P>
+<P>
+<A NAME="IDX358"></A>
+At <STRONG>MySQL AB</STRONG>, we have never had any need for row-level locking
+because we have always been able to code around it. Some cases really need
+row locking, but they are very few. If you want row-level locking, you
+can use a flag column in the table and do something like this:
+
+</P>
+
+<PRE>
+UPDATE tbl_name SET row_flag=1 WHERE id=ID;
+</PRE>
+
+<P>
+<STRONG>MySQL</STRONG> returns 1 for the number of affected rows if the row was
+found and <CODE>row_flag</CODE> wasn't already 1 in the original row.
+
+</P>
+<P>
+You can think of it as <STRONG>MySQL</STRONG> changed the above query to:
+
+</P>
+
+<PRE>
+UPDATE tbl_name SET row_flag=1 WHERE id=ID and row_flag &#60;&#62; 1;
+</PRE>
+
+<P><HR><P>
+Go to the <A HREF="manual_Introduction.html">first</A>, <A HREF="manual_Installing.html">previous</A>, <A HREF="manual_Privilege_system.html">next</A>, <A HREF="manual_Concept_Index.html">last</A> section, <A HREF="manual_toc.html">table of contents</A>.
+ </BODY>
+ </HTML>

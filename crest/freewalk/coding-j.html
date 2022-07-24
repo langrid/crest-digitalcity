@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-2022-jp">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>FreeWalk:各モジュールごとの開発状況</title>
+<style type="text/css"><!--
+H1{
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 0px;
+  color:blue;
+}
+H2{
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 0px;
+  color:red;
+  border-width: 1px;
+  border-color: red;
+}
+SPAN.cross{
+  color:blue;
+}
+--></style>
+</head>
+<body>
+
+<hr>
+
+<h1>各モジュールごとの担当者・開発状況 <SMALL>(2000.8.10現在)</SMALL></h1>
+
+<p>
+クライアントのソースをモジュールごとに分割しました。<BR>
+それぞれのモジュールに対するファイルを記載しています。<BR>
+<BR>
+サーバの方はまだ完了していません。今後の予定としてはDSをなくす方向で検討しています。<BR>
+<BR>
+クライアント基本部分に通信の基本モジュールを組み込みました。<BR>
+パケットの受信はクライアント基本が、パケットの送信はそれぞれのモジュールが担当することとします。
+</p>
+
+<p>
+ファイル名が黒字 : 他のモジュールから独立しているファイル<br>
+<span class="cross">ファイル名が青字</span> : 他のモジュールと共有している
+ファイル
+</p>
+
+<hr>
+
+<h2>ディレクトリサーバ</h2>
+
+<h3>ディレクトリサーバ基本 (井上)</h3>
+
+ファイル :
+<ul>
+  <li><span class="cross">FW_DSCS/fw_ds.cpp</span>
+  <li>FW_DSCS/default_server.h
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>空間サーバ情報配信 (井上)</h3>
+
+ファイル :
+<ul>
+  <li><span class="cross">FW_DSCS/fw_ds.cpp</span>
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h2>空間サーバ</h2>
+
+<h3>空間サーバ基本 (井上)</h3>
+
+ファイル :
+<ul>
+  <li>FW_DSCS/fwcsmain.cpp
+  <li><span class="cross">FW_CSDS/fw_cs.cpp</span>
+  <li>FW_DSCS/CmdLine.cpp
+  <li>FW_DSCS/CmdLine.h
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>衝突判定 (井上)</h3>
+
+ファイル :
+<ul>
+  <li>(現在なし)
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>シーン記述データ配信 (羽河)</h3>
+
+ファイル :
+<ul>
+  <li>(現在なし)
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>メンバ情報配信 (井上)</h3>
+
+ファイル :
+<ul>
+  <li><span class="cross">FW_CSDS/fw_cs.cpp</span>
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>画像配信 (梅澤)</h3>
+
+ファイル :
+<ul>
+  <li>(現在なし)
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>音声配信 (シューリン)</h3>
+
+ファイル :
+<ul>
+  <li>(現在なし)
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h2>クライアント(エージェント,アバター)</h2>
+
+<h3>クライアント基本 (井上)</h3>
+
+ファイル :
+<ul>
+  <li>Main/FreeWalk.cpp
+  <li>Main/FreeWalk.h
+  <li>Main/Fwvr.cpp
+  <li>Main/Fwvr.h
+  <li>Main/FwvrCtl.cpp
+  <li>Main/FwvrCtl.h
+  <li>Main/FwvrPpg.cpp
+  <li>Main/FwvrPpg.h
+  <li>Main/TimerProc.cpp
+  <li>Main/TimerProc.h
+  <li>Main/DlgLogin.cpp
+  <li>Main/DlgLogin.h
+  <li>Communication/com.cpp
+  <li>Communication/com.h
+  <li>Communication/connect.cpp
+  <li>Communication/connect.h
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>移動 (事業団)</h3>
+
+ファイル :
+<ul>
+  <li>Movement/Movement.cpp
+  <li>Movement/Movement.h
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>避難エージェント (井上)</h3>
+
+ファイル :
+<ul>
+  <li>CrowdAgent/ 以下 (現在なし)
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>誘導エージェント (中澤)</h3>
+
+ファイル :
+<ul>
+  <li>HelperAgent/ 以下
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>音声発話 &amp; ジェスチャ (中澤)</h3>
+
+ファイル :
+
+<ul>
+  <li>Speaking/PlayWave.cpp
+  <li>Speaking/PlayWave.h
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>画面描画 (下吉)</h3>
+
+ファイル :
+<ul>
+  <li>Graphics/OpenGL.cpp</span>
+  <li>Graphics/OpenGL.h</span>
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>歩行アニメ (松本)</h3>
+
+ファイル :
+<ul>
+  <li>Walking/ 以下 (現在なし)
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>シーン記述データ通信 (羽河)</h3>
+
+ファイル :
+<ul>
+  <li>Space/ 以下 (現在なし)
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>VRML変換 (下吉)</h3>
+
+ファイル :
+<ul>
+  <li>Graphics/Vrml.cpp
+  <li>Graphics/Vrml.h
+  <li>Graphics/Qvlib/ 以下 
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>メンバ情報管理 (井上)</h3>
+
+ファイル :
+<ul>
+  <li>Members/LocationConnection.cpp</span>
+  <li>Members/LocationConnection.h</span>
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>画像通信 (梅澤)</h3>
+
+ファイル :
+<ul>
+  <li>Video/Video.cpp
+  <li>Video/Video.h
+  <li>Video/WndFace.cpp
+  <li>Video/WndFace.h
+  <li>Video/VisualConnection.cpp
+  <li>Video/VisualConnection.h
+  <li>Video/piccomp.cpp
+  <li>Video/piccomp.h
+  <li>Video/Capture.h
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>音声認識 (中澤)</h3>
+
+ファイル :
+<ul>
+  <li>Hearing/ 以下
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<h3>音声通信 (シューリン)</h3>
+
+ファイル :
+<ul>
+  <li>Audio/Audio.cpp
+  <li>Audio/Audio.h
+  <li>Audio/AudioCtrl.cpp
+  <li>Audio/AudioCtrl.h
+  <li>Audio/AudioConnection.cpp</span>
+  <li>Audio/AudioConnection.h</span>
+</ul>
+<p>
+変更履歴 :
+</p>
+
+<hr>
+<a href="index-j.html">開発用ページに戻る</a>
+
+</body>
+</html>

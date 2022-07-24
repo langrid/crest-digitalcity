@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Analysis on Landmarks in a City</title>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<link rel=stylesheet type="text/css" href="../research.css">
+</head>
+
+<body>
+
+<h3>Analysis on Landmarks in a City</h3>
+
+<div class="text">
+<p>A mental image of a city is different from its physical structure. The elements of the city image include nodes, edges, paths, districts and landmarks. Because such cognitive information can be used as a basis for city navigation and regional information search, there has been some research on cognitive geography as collected from questionnaires. Our research utilizes the large document set available through the World Wide Web and automatically extract from it cognitive geographic information </p>
+<p>In general, geographic information is expressed by either maps or sentences. Web contains many spatial sentences. Because a full understanding of such sentences is difficult, we focused on partial  sentence structures. For example, if the expression “near X” frequently occurs, place name X can be considered as a landmark candidate. In order to discern the relationships between landmarks and spatial expressions, we divided landmarks into 4 categories and compared how the members of each category are used in spatial expressions. The result is shown in Figure 1. Members of the station category frequently co-occur with the prepositions “around” and “from”, and not as much with “in front of”. On the other hand, members of the ward category are seldom used with the preposition “to”, while members of the temple and shrine categories have high co-occurrence with the preposition “at”.</p>
+<p align="center"><a href="image1.html" target="_self"><img src="image1.jpg" width="400" border="0"></a><br>Figure 1. Extraction of Landmark Attributes from Spatial Expressions</p>
+<p>Such co-occurrence information enables us to assign cognitive attributes to geographic objects. For example, stations  when used with “at” are important as sites of action, while stations with “from” are important as origins of movement. We have developed visualization tools for such cognitive categorization, as shown in Figure 2. The user can choose which cognitive type or types of geographic objects are to be shown on the map. For example, local residents and tourists will have different preferences. </p>
+<p align="center"><a href="image2.html" target="_self"><img src="image2.jpg" width="300" border="0"></a><br>Figure 2. Visualization Interface for Landmark Characterization</p>
+<p>The co-occurrence relationships between place names were also used for grouping place names. By creating a graph structure where nodes are place names and edges are drawn when place names at both ends are close enough and exhibit co-occurrence, subgraphs with higher connectivity often match regions with specific characteristics. At the same time, nodes with a high degree of connection are often landmarks. We used this method to extract both regions and the landmarks from the target area.</p>
+
+<h4>Publications:</h4>
+<p>Taro Tezuka, Ryong Lee, Hiroki Takakura and Yahiko Kambayashi. Acquisition of Landmark Knowledge from Spatial Description. Proceedings of 2002 IRC International Conference on Internet Information Retrieval, pp.214-221, 2002.</p>
+<p>Taro Tezuka, Ryong Lee, Hiroki Takakura and Yahiko Kambayashi. Cognitive Characterization of Geographic Objects Based on Spatial Descriptions in Web Resources. Workshop on Spatial Data and Geographic Information Systems(SpaDaGIS), 2003.</p>
+
+<h4>Contact:</h4>
+<p>Taro Tezuka (tezuka at dl.kuis.kyoto-u.ac.jp)<br>Yusuke Yokota (yyokota at i.kyoto-u.ac.jp)<br>Dept. of Social Informatics, Kyoto University</p>
+
+
+<hr>
+<p align="center"><a href="../index.html" target="_self">Back</a></p>
+</div>
+
+</body>
+</html>
+

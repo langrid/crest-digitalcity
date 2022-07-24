@@ -1,0 +1,965 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=shift_jis">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./module.files/filelist.xml">
+<title>FreeWalk-VRMLモジュール構成</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>中西 英之</o:Author>
+  <o:LastAuthor>石田 亨</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>232</o:TotalTime>
+  <o:Created>2000-07-25T05:27:00Z</o:Created>
+  <o:LastSaved>2000-07-25T05:27:00Z</o:LastSaved>
+  <o:Pages>6</o:Pages>
+  <o:Words>375</o:Words>
+  <o:Characters>2139</o:Characters>
+  <o:Lines>17</o:Lines>
+  <o:Paragraphs>4</o:Paragraphs>
+  <o:CharactersWithSpaces>2626</o:CharactersWithSpaces>
+  <o:Version>9.2812</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:PunctuationKerning/>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:Compatibility>
+   <w:SpaceForUL/>
+   <w:BalanceSingleByteDoubleByteWidth/>
+   <w:DoNotLeaveBackslashAlone/>
+   <w:ULTrailSpace/>
+   <w:DoNotExpandShiftReturn/>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"ＭＳ 明朝";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-alt:"MS Mincho";
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-pitch:fixed;
+	mso-font-signature:-1610612033 1757936891 16 0 131231 0;}
+@font-face
+	{font-family:"ＭＳ ゴシック";
+	panose-1:2 11 6 9 7 2 5 8 2 4;
+	mso-font-alt:"MS Gothic";
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-1610612033 1757936891 16 0 131231 0;}
+@font-face
+	{font-family:Century;
+	panose-1:2 4 6 4 5 5 5 2 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:"ＭＳ Ｐゴシック";
+	panose-1:2 11 6 0 7 2 5 8 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-pitch:variable;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:"\@ＭＳ ゴシック";
+	panose-1:2 11 6 9 7 2 5 8 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:"\@ＭＳ 明朝";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:"\@ＭＳ Ｐゴシック";
+	panose-1:2 11 6 0 7 2 5 8 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-pitch:variable;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0mm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:none;
+	font-size:10.5pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Century;
+	mso-fareast-font-family:"ＭＳ 明朝";
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:1.0pt;}
+ /* Page Definitions */
+@page
+	{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:99.25pt 30.0mm 30.0mm 30.0mm;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;
+	layout-grid:18.0pt;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:337739017;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1961863398 -2030541486 67698699 67698701 67698689 67698699 67698701 67698689 67698699 67698701;}
+@list l0:level1
+	{mso-level-start-at:2;
+	mso-level-number-format:bullet;
+	mso-level-text:・;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"ＭＳ Ｐゴシック";}
+@list l1
+	{mso-list-id:1508909603;
+	mso-list-template-ids:-2058743322;}
+@list l1:level1
+	{mso-level-text:%1;
+	mso-level-tab-stop:28.5pt;
+	mso-level-number-position:left;
+	margin-left:28.5pt;
+	text-indent:-28.5pt;}
+@list l1:level2
+	{mso-level-start-at:3;
+	mso-level-text:%1．%2;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	margin-left:36.0pt;
+	text-indent:-36.0pt;}
+@list l1:level3
+	{mso-level-text:"%1．%2\.%3";
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	margin-left:36.0pt;
+	text-indent:-36.0pt;}
+@list l1:level4
+	{mso-level-text:"%1．%2\.%3\.%4";
+	mso-level-tab-stop:54.0pt;
+	mso-level-number-position:left;
+	margin-left:54.0pt;
+	text-indent:-54.0pt;}
+@list l1:level5
+	{mso-level-text:"%1．%2\.%3\.%4\.%5";
+	mso-level-tab-stop:54.0pt;
+	mso-level-number-position:left;
+	margin-left:54.0pt;
+	text-indent:-54.0pt;}
+@list l1:level6
+	{mso-level-text:"%1．%2\.%3\.%4\.%5\.%6";
+	mso-level-tab-stop:54.0pt;
+	mso-level-number-position:left;
+	margin-left:54.0pt;
+	text-indent:-54.0pt;}
+@list l1:level7
+	{mso-level-text:"%1．%2\.%3\.%4\.%5\.%6\.%7";
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	margin-left:72.0pt;
+	text-indent:-72.0pt;}
+@list l1:level8
+	{mso-level-text:"%1．%2\.%3\.%4\.%5\.%6\.%7\.%8";
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	margin-left:72.0pt;
+	text-indent:-72.0pt;}
+@list l1:level9
+	{mso-level-text:"%1．%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9";
+	mso-level-tab-stop:90.0pt;
+	mso-level-number-position:left;
+	margin-left:90.0pt;
+	text-indent:-90.0pt;}
+@list l2
+	{mso-list-id:1990478451;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-6805058 832439550 67698699 67698701 67698689 67698699 67698701 67698689 67698699 67698701;}
+@list l2:level1
+	{mso-level-start-at:2;
+	mso-level-number-format:bullet;
+	mso-level-text:・;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"ＭＳ Ｐゴシック";}
+ol
+	{margin-bottom:0mm;}
+ul
+	{margin-bottom:0mm;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=JA style='tab-interval:42.55pt;text-justify-trim:punctuation'>
+
+<div class=Section1 style='layout-grid:18.0pt'>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>FreeWalk-VRMLモジュール構成<o:p></o:p></span></p>
+
+<p class=MsoNormal align=right style='text-align:right'><span lang=EN-US
+style='font-size:10.0pt;font-family:"ＭＳ ゴシック"'>2000年7月17日<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>1. モジュール<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>1．1　クライアント<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>クライアント基本（事業団）：　</span></b><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック";
+mso-bidi-font-weight:bold'>プログラムの起動．</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>各種モジュールの呼び出し．パケット受信処理．<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>音声通信（シューリン）：　</span></b><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>音声データの通信と圧縮解凍．音声データのマイクからの入力，スピーカへの出力．<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>音声認識（中澤）：　</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>マイクから入力された音声データをもとに，キーワードを抽出して，誘導エージェントに送信．<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>画像通信（事業団）：　</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>カメラからの画像のキャプチャリング．画像データの通信と圧縮解凍．<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>メンバ情報管理（事業団）：　</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>自分と同一空間に接続している全クライアントの<span
+lang=EN-US>ID・名前・位置・向き・種類などの情報を管理．<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>シーン記述データ通信（羽河）：　</span></b><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>VRMLデータ・テクスチャデータ・空間構造データを空間サーバからダウンロード．<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>VRML変換（事業団）：</span></b><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>
+VRMLデータをOpenGLデータに変換．<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>画面描画（事業団）：　</span></b><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック";
+mso-bidi-font-weight:bold'>OpenGLを用いて画面を描画．</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><span style="mso-spacerun: yes">&nbsp;</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>歩行アニメ（松本）：　</span></b><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック";
+mso-bidi-font-weight:bold'>群集</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>歩行アニメーションを表示するために，人物像の関節角度を計算．<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>移動（事業団）：　</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>キー入力にもとづいてアバターの移動ベクトルを計算．アバターやエージェントの移動ベクトルを空間サーバに送信．<b><span
+lang=EN-US><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>誘導</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>エージェント（中澤）：　</span></b><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>誘導エージェントの移動ベクトルを計算．音声発話やジェスチャの実行を決定．<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><span style="mso-spacerun: yes">&nbsp;</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>避難エージェント（松下先生）：　</span></b><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>避難する群集を構成する各エージェントの移動ベクトルを計算．音声発話の実行を決定．<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>音声発話＆ジェスチャ（中澤）：　</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>音声発話処理．ジェスチャの実行を他のクライアントに告知．<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>1．2　空間サーバ<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>空間サーバ基本（事業団）：　</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック";mso-bidi-font-weight:bold'>プログラムの起動．</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>各種モジュールの呼び出し．パケット受信処理．接続要求処理．クライアント間メッセージの中継ぎ．<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>音声配信（シューリン）：　</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>音声データの合成・通信・圧縮解凍．<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>画像配信（事業団）：　</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>画像データを各クライアントの要求に応じて配信．<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>メンバ情報配信（事業団）：　</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>自分の管理する空間に接続している全クライアントの<span
+lang=EN-US>ID・名前・位置・向き・種類などの情報を管理．クライアントの入場・退場を処理．<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>シーン記述データ配信（羽河）：　</span></b><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>VRMLデータ・テクスチャデータ・空間構造データを各クライアントの要求に応じて配信．<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>衝突判定（松下先生）：　</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>各クライアントから受け取った移動ベクトルをもとに衝突判定を行い，各クライアントの位置を決定する．<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-36.0pt;mso-list:l1 level2 lfo3;
+tab-stops:list 36.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>1．3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>ディレクトリサーバ<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>ディレクトリサーバ基本（事業団）：</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>　<span style='mso-bidi-font-weight:
+bold'>プログラムの起動．</span>パケット受信処理．接続要求処理．<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>空間サーバ情報配信（事業団）：</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>　空間名をもとに空間サーバの<span
+lang=EN-US>IPアドレスを検索．<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>2. 関数<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>※呼び出し元—呼び出し先<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>2．1　クライアント<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>クライアント基本—音声認識：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo2;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>音声認識を実行<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>クライアント基本—画像通信：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo2;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>画像入力開始（コールバック関数の設定）<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo2;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>画像データ要求処理<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo2;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>画像データ受信<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>クライアント基本—メンバ情報管理：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>メンバ登録<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>メンバ削除<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>メンバ情報の更新<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>クライアント基本—シーン記述データ通信：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>シーン記述データダウンロード要求処理<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>シーン記述データ受信．<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>シーン記述データ通信—<span lang=EN-US>VRML変換<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>VRMLデータのOpenGLデータへの変換<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>クライアント基本—画面描画：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>画面を描画<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>画面描画—歩行アニメ：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>人物像の間接角度を計算．<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>クライアント基本—移動：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>移動<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>移動—誘導エージェント：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>行動<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>移動—避難エージェント：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>行動<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>誘導エージェント，避難エージェント—音声発話＆ジェスチャ：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>音声発話実行<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>ジェスチャ実行<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>補足：</span></b><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>音声通信は独立したスレッドで動作する．共有メモリに作成されるバッファ領域に，随時最新の音声データが格納される．<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>2．2　空間サーバ<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>空間サーバ基本—画像配信：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>画像配信処理<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>空間サーバ基本—メンバ情報配信：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>メンバ登録<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>メンバ削除<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>メンバ情報の更新<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>空間サーバ基本—シーン記述データ配信：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>シーン記述データ配信処理<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>空間サーバ基本—衝突判定：<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>各クライアントの位置と向きを更新<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>補足：</span></b><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>音声配信は独立したスレッドで動作する．<span lang=EN-US> <o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>2．3　ディレクトリサーバ<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>ディレクトリサーバ基本—空間サーバ情報配信<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>空間サーバ登録<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ Ｐゴシック";mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>・<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>空間サーバ削除<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>3.　データ</span><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>※　—<span lang=EN-US>XX→<span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>XXを介したデータの移動<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>音声データ（上り）：</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>　マイクから取った音声データ（<span
+lang=EN-US>8ビット・８ｋHzのローデータ）<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>音声通信<span lang=EN-US><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—通信→<span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span>音声配信<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—バッファ→<span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>音声認識<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>音声データ（下り）：</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>　合成後の音声データ（<span lang=EN-US>8ビット・８ｋHzのローデータ）<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>音声配信<span lang=EN-US><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—通信→<span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span>音声通信<b><o:p></o:p></b></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>画像データ（上り）：</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>　画像データ（<span lang=EN-US>160x120のビットマップデータ）<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>画像通信<span lang=EN-US><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—通信→<span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span>画像配信<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>画像データ（下り）：</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>　クライアント<span lang=EN-US>ID，画像データ（160x120のビットマップデータ）<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>画像配信<span lang=EN-US><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—通信→<span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span>画像通信<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>移動ベクトル：</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>　（<span lang=EN-US>X，Z）値<span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>※X，Zは浮動小数点変数<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:85.1pt;text-indent:42.55pt'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>（キー入力）<span
+lang=EN-US><span style='mso-tab-count:1'> </span>移動<span style='mso-tab-count:
+1'> </span>—通信→<span style='mso-tab-count:1'> </span>衝突判定<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>誘導／避難エージェント　—返り値→<span lang=EN-US><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>移動<span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—通信→<span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span>衝突判定<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>位置・向きデータ：</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>　｛クライアント<span lang=EN-US>ID，（X，Z，Direction）値｝の集合<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>衝突判定　—通信→　クライアント基本　—引数→　メンバ情報管理<span lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>メンバ情報管理<span lang=EN-US><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—バッファ→<span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>画面描画<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:170.2pt;text-indent:42.55pt'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>画像通信<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:170.2pt;text-indent:42.55pt'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>シーン記述データ通信<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:170.2pt;text-indent:42.55pt'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>誘導／避難エージェント<span
+lang=EN-US><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>シーン記述データ通信<span lang=EN-US><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—引数→<span style='mso-tab-count:
+1'>&nbsp;&nbsp; </span>歩行アニメ生成<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>シーン記述データ：</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>　<span lang=EN-US>VRMLデータ・テクスチャーデータ・空間構造データ<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>シーン記述データ配信<span lang=EN-US><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—通信→<span style='mso-tab-count:
+1'>&nbsp;&nbsp; </span>シーン記述データ通信<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>VRMLデータ：</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>　<span lang=EN-US>VRML2．0データ<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>シーン記述データ通信<span lang=EN-US><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—引数→<span style='mso-tab-count:
+1'>&nbsp;&nbsp; </span>VRML変換<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>テクスチャデータ：</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>　ビットマップデータ（<span lang=EN-US>JPEG）<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>シーン記述データ通信<span lang=EN-US><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—バッファ→<span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>画面描画<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>空間構造データ：</span></b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>　<span lang=EN-US>2次元のベクトル集合データを拡張した特殊フォーマット<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"ＭＳ ゴシック"'>シーン記述データ通信<span lang=EN-US><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—バッファ→<span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>誘導／避難エージェント<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>OpenGLデータ：　</span></b><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"ＭＳ ゴシック"'>OpenGLのディスプレイリスト<b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'>VRML変換<span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>—返り値→<span
+style='mso-tab-count:1'> </span>シーン記述データ通信<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"ＭＳ ゴシック"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
