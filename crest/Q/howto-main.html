@@ -13,64 +13,64 @@
       <!--[Japanese/<a href="howto-e.html" target="_top">English</a>]-->
     </left>
     <hr>
-    <center><h2>Q�������</h2></center>
+    <center><h2>Q言語仕様</h2></center>
     <table align="center" width="500">
 	<tr>
-	  <td colspan="3"><H3>Q������߷�</H3>
+	  <td colspan="3"><H3>Q言語の設計</H3>
 	  
 	    <P>
-	      Q�������Ȥ���Scheme���Ѥ��Ƥ���. ���ʥꥪ�ε��Ҥ���ɸ��
-	      ����, ��¬�ʥ��塼�ȸƤ֡ˤ�ư��ʥ��������ȸƤ֡ˤ򵭽�
-	      �����ü������, �������դ����ޥ�ɤ�Ƴ������Ƥ���. Q����
-	      �����Scheme�Ȥ����Τ�, �ץ�������ǡ����Ȥ��ư�����Ȥ�
-	      ��Lisp�ϸ������ħ�����󥿥饯�����ε��Ҥ�Ŭ���Ƥ��뤫��
-	      �Ǥ���. �㤨��, A����ˡ�����, B����λŻ����⤷���˽����
-	      ����, �ؤ��줳�줷�������٤λŻ������Ǥ��������פȰ��ꤹ
-	      �����ͤ��褦. �ؤ��줳�줷�������٤ϥ��ʥꥪ��ɽ����,
-	      ���Υ��ʥꥪ�ϥǡ����Ȥ���A���󤫤�B�������������, ������
-	      ���Ʋ��¹Ԥ����. �ץ�������ǡ����Ȥ��ư����뤳�Ȥ�
-	      , �����������ʥꥪ�ε��Ҥˤ�ɬ�פʤΤǤ���. 
+	      Qは母言語としてSchemeを用いている. シナリオの記述を目標と
+	      して, 観測（キューと呼ぶ）と動作（アクションと呼ぶ）を記述
+	      する特殊形式と, ガード付きコマンドが導入されている. Qの母
+	      言語をSchemeとしたのは, プログラムをデータとして扱えるとい
+	      うLisp系言語の特徴がインタラクションの記述に適しているから
+	      である. 例えば, Aさんに「明日, Bさんの仕事がもし早めに終わっ
+	      たら, 『これこれしかじか』の仕事を頼んでください」と依頼す
+	      る場合を考えよう. 『これこれしかじか』はシナリオを表すが,
+	      そのシナリオはデータとしてAさんからBさんに送信され, そこで
+	      初めて解釈実行される. プログラムをデータとして扱えることが
+	      , こうしたシナリオの記述には必要なのである. 
 	    </P>
 	    <OL>
-	      <LI>���塼 
+	      <LI>キュー 
 		<P>
-		  ���󥿥饯�����Τ��ä����ϥ��塼(��ޤ��뤤�ϼ꤬��
-		  ���������뤳�Ȥ�¿��) �ȸƤФ��. Q�ˤ����륭�塼��
-		  �������¬���������, �����ؤ������ѤϤʤ�. �㤨�аʲ�
-		  �Τ褦�˵��Ҥ���. 
+		  インタラクションのきっかけはキュー(合図あるいは手がか
+		  りと訳されることが多い) と呼ばれる. Qにおけるキューは
+		  外界を観測するだけで, 外界への副作用はない. 例えば以下
+		  のように記述する. 
 		</p>
 		<PRE>
 (?hear :name Hanako :word "Hello")
 (?position :name Kyoto_Station :distance "near")
 		</PRE></li>
-	      <LI>��������� 
+	      <LI>アクション 
 		<P>
-		  Q�ǤΥ��������ϳ����ؤκ��ѤǤ���. ����������, ��
-		  ���Τ褦�˵��Ҥ���. 
+		  Qでのアクションは外界への作用である. アクションは, 以
+		  下のように記述する. 
 		<PRE>
 (!approach :name Bus_Terminal)
 (!speak :sentence "Hello" :to Hanako)
 		</PRE>
 		
-		���塼�䥢�������ϥ���������Ȥˤ�äƼ¹Ԥ����. ����
-		��, Ʊ��move�Ȥ������������Ǥ�,   ����������Ȥ��Ȥ˰�
-		̣����Ȥ������ۤʤäƤ褤. ������, ʣ���Υ���������Ȥ�
-		���̤��Ѥ�����ñ����㤨��, hear, see, say, speak�ˤ�,
-		����������뤿���Q�ˤ�ä�ͽ�󤵤�, °���ʤɤ�����Ū
-		��Ϳ�����Ƥ���. 
+		キューやアクションはエージェントによって実行される. 従っ
+		て, 同じmoveというアクションでも,   エージェントごとに意
+		味するところが異なってよい. しかし, 複数のエージェントで
+		共通に用いられる単語（例えば, hear, see, say, speak）は,
+		可読性を高めるためにQによって予約され, 属性などが統一的
+		に与えられている. 
 	      </p>
 	      </li>
-	      <LI>�������դ����ޥ�� 
+	      <LI>ガード付きコマンド 
 		<P>
-		  ¿���Υ��塼���¹Ԥ���õ������, ���뤤���Ԥ�������ˤ�
-		  , �������դ����ޥ�ɤ��Ѥ���. 
+		  多くのキューを並行して探索する, あるいは待ち受けるには
+		  , ガード付きコマンドを用いる. 
 		  
 		<PRE>
 (guard {(cue {form}*)}*[(otherwise {form}*)])
 		</pre>
-		���ξ��ˤ�, �����줫�Υ��塼����¬���줿���, ��³����
-		�������¹Ԥ����. �ɤΥ��塼���ǽ�Ȥʤ�ʤ����ˤ�,
-		otherwise�᤬�¹Ԥ����. 
+		この場合には, いずれかのキューが観測された後に, 後続する
+		形式が実行される. どのキューも可能とならない場合には,
+		otherwise節が実行される. 
 		<pre>
 (guard ((?hear :name Hanako :word "Hello") 
         (!speak :sentence "Hello" :to Hanako))
@@ -78,17 +78,17 @@
         (!approach :name Kyoto_Station))
        (otherwise (!send "I cannot find anything" :to Taro)))
 		</PRE>
-		���ξ��ˤ�, �����줫�Υ��塼����¬���줿���, ��³����
-		�������¹Ԥ����. �嵭����Ǥ�, ��������󤬸�³���Ƥ���
-		��,   ���̤ˤɤΤ褦�ʷ��������Ҥ���Ƥ�褤. �ɤΥ��塼
-		����Ω���ʤ����ˤ�, otherwise�᤬�¹Ԥ����. ����¾, Q
-		����Ǥ�, Scheme���󶡤����͡������湽ʸ(���ʬ��, ����
-		�֤�)�����Ѳ�ǽ�Ǥ���. 
+		この場合には, いずれかのキューが観測された後に, 後続する
+		形式が実行される. 上記の例では, アクションが後続している
+		が,   一般にどのような形式が記述されてもよい. どのキュー
+		も成立しない場合には, otherwise節が実行される. この他, Q
+		言語では, Schemeが提供する様々な制御構文(条件分岐, 繰り
+		返し)が利用可能である. 
 	      </p>
 	      </li>
-	      <LI>���ʥꥪ 
+	      <LI>シナリオ 
 		<P>
-		  ���ʥꥪ�Ͼ������ܤ򵭽Ҥ��뤿��Τ�ΤǤ���. 
+		  シナリオは状態遷移を記述するためのものである. 
 		<PRE>
 (defscenario chat (message) 
    (let (($x #f))
@@ -98,78 +98,78 @@
                 (otherwise (!say "Hello")))
         (scene3 (#t (!say "Bye")))))
 		</PRE>
-		�嵭����Ǥ�, 3���֡�scene1, scene2, scene3�ˤ��������
-		�Ƥ���. �ƾ��֤ε��Ҥϥ������դ����ޥ�ɤ�Ʊ�ͤι�ʸ§��
-		����.   ���ʥꥪ�Ͼ������ܷ����Ǥ��뤬, �ƾ��֤���Ǥ�դ�
-		�����ʴؿ��䥷�ʥꥪ��ޤ�ˤ��ƤӽФ���Τ�, �ˤ�ƽ���
-		�˥��ʥꥪ��������뤳�Ȥ��Ǥ���. 
+		上記の例では, 3状態（scene1, scene2, scene3）が定義され
+		ている. 各状態の記述はガード付きコマンドと同様の構文則に
+		従う.   シナリオは状態遷移形式であるが, 各状態から任意の
+		形式（関数やシナリオを含む）が呼び出せるので, 極めて柔軟
+		にシナリオを定義することができる. 
 	      </p>
 	      </LI>
-	      <li>�Ķ��ε��Ҥȥ���������Ȥ����
+	      <li>環境の記述とエージェントの定義
 		<p>
-		  ����������ȷ����Τ˴ؤ��Ķ��ε��Ҥ�defenv�����ˤ��
-		  ��Ϳ����. ����������ȷ����ΤδĶ��򵭽Ҥ���Τ�, ���
-		  �����Ԥ�Ω��ǵ��Ҥ���. ����Ԥ�, �Ķ����Τ�, ���δ�
-		  ���ˤ����륨��������ȷ��ؤΥ��ʥꥪ�򵭽Ҥ�Ϳ����Τ�
-		  ����. �ޤ��������ԻԶ��֥�ǥ�ʤɤϴĶ��ǤϤʤ�������
-		  ��ϥ���������ȤȤ�����������ɬ�פ����롥���Ҥ�����
-		  ����Ǥϥ���������ȡ����Х�����������������뤳�Ȥ���
-		  ���롥
+		  エージェント群全体に関わる環境の記述はdefenv形式によっ
+		  て与える. エージェント群全体の環境を記述するのも, やは
+		  り依頼者の立場で記述する. 依頼者は, 環境全体と, その環
+		  境におけるエージェント群へのシナリオを記述し与えるので
+		  ある. また，仮想都市空間モデルなどは環境ではなく，これ
+		  らはエージェントとして定義される必要がある．記述した環
+		  境内ではエージェント，アバター，群衆を定義することがで
+		  きる．
 		</p>
-		<font color="#ff0000">(���ջ���)<br>
-		  ��������դ����������ƾ�ά��ǽ�Ǥ��롥�ޤ��������
-		  �ˤĤŤ��ͤΰ�̣�ȷ��򵭤�����
-		  �㤨�С�<br>
-		  :location ��ɸ(pair)<br>
-		  �ϡ�:location������ɤ˷���pair�κ�ɸ�ͤ�³�����Ȥ��̣���롥<br>
-		  :location ��ɸ(pair)�Ͼ�ά���뤳�Ȥ�Ǥ��롣<br>
-		  {key value}�ϥ��ץꤴ�Ȥ˻���Ǥ��롥</font>
+		<font color="#ff0000">(注意事項)<br>
+		  キーワード付き引数は全て省略可能である．またキーワード
+		  につづく値の意味と型を記した．
+		  例えば，<br>
+		  :location 座標(pair)<br>
+		  は，:locationキーワードに型がpairの座標値が続くことを意味する．<br>
+		  :location 座標(pair)は省略することもできる。<br>
+		  {key value}はアプリごとに指定できる．</font>
 		<pre>
 (defagent name 
         scenario       
-        :location       ��ɸ(pair)
-        :shape          �����ѥǡ���(pair)
-��������{key value}��
+        :location       座標(pair)
+        :shape          描画用データ(pair)
+　　　　{key value}…
 )
 (defavatar name          
         scenario       
-        :location      ��ɸ(pair)
-        :shape         �����ѥǡ���(pair)
-        :control   �������⡼��(string)
-��������{key value}��
+        :location      座標(pair)
+        :shape         描画用データ(pair)
+        :control   　　操作モード(string)
+　　　　{key value}…
 )
 (defcrowd name           
         scenario      
-        :population        �Ϳ�(integer)
-        :location_range �� ��ɸ(pair)
-        :shape_choice      �����ѥǡ������������ꥹ��(pair)
-��������{key value}��
+        :population        人数(integer)
+        :location_range 　 座標(pair)
+        :shape_choice      描画用データの選択候補リスト(pair)
+　　　　{key value}…
 )
 		</pre>
 		scenario<br>
-		�ǽ�˥����ƥफ�饨���������, ����������ȷ��������ꤳ
-		�ޤ�륷�ʥꥪ�򵭽Ҥ���. ����������ȤΥ��ʥꥪ��Ǥ�,
-		ư����ΤΥ���������Ȥ�self�ȵ��Ҥ���. �ޤ�, ���ѼԤ�
-		user�ȵ��Ҥ���.
+		最初にシステムからエージェント, エージェント群衆に送りこ
+		まれるシナリオを記述する. エージェントのシナリオ内では,
+		動作主体のエージェントはselfと記述する. また, 利用者は
+		userと記述する.
 		<br>
-		{key value}��<br>
-		��ˤ����������ʳ��˱��ѥץ��������˻���Ǥ���.  (�º�
-		��FreeWalk��Ǥ������<a href="example-main.html"
-					 target="main">����</a>�򻲾�)
+		{key value}…<br>
+		上にあげたキー以外に応用プログラム毎に指定できる.  (実際
+		のFreeWalk上での定義は<a href="example-main.html"
+					 target="main">ここ</a>を参照)
 	      </li></OL>
-	    �ܤ�����<a href="./users_guide/Qv1.5.doc" target="_blank">�桼������������</a>��������������
+	    詳しくは<a href="./users_guide/Qv1.5.doc" target="_blank">ユーザーズガイド</a>をご覧ください。
 	    <br><br>
 	  </td>
 	</tr>
 	<tr>
 	  <td align="left">
-	    <h3><a href="whatisQ-main.html" target="main">���</a></h3>
+	    <h3><a href="whatisQ-main.html" target="main">戻る</a></h3>
 	  </td>
 	  <td align="center">
-	    <h3><a href="index.html" target="_top">Top ��</a></h3>
+	    <h3><a href="index.html" target="_top">Top へ</a></h3>
 	  </td>
 	  <td align="right">
-	    <h3><a href="example-main.html" target="main">�� ��</a></h3>
+	    <h3><a href="example-main.html" target="main">次 へ</a></h3>
 	  </td>
 	</tr>
     </table>

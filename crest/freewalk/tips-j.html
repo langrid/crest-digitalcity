@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-2022-jp">
 <meta http-equiv="Content-Style-Type" content="text/css">
-<title>FreeWalk:$B3+H/$N$?$a$N(BTips</title>
+<title>FreeWalk:開発のためのTips</title>
 <style type="text/css"><!--
 H1{
   font-size: 1.5em;
@@ -18,54 +18,54 @@ H1{
 
 <hr>
 
-<h1>$B3+H/$N$?$a$N(B Tips <SMALL>(2000.8.15$B99?7(B)</SMALL></h1>
+<h1>開発のための Tips <SMALL>(2000.8.15更新)</SMALL></h1>
 
 <dl>
-<dt><strong>$B?7$7$$%^%7%s$G(B FreeWalk $B$r%3%s%Q%$%k$9$k;~(B</strong>
+<dt><strong>新しいマシンで FreeWalk をコンパイルする時</strong>
 <dd><p>
-FreeWalk $B$N%=!<%9%3!<%I$NCf$G(B QvLib $B$H$$$&(B VRML $B%Q!<%5$rMxMQ$7$F$$$^$9$,!"(B
-$B%G%U%)%k%H$G$O$3$N(B QvLib $B$N%$%s%/%k!<%I%U%!%$%k$rFI$_9~$`$3$H$,$G$-$^$;$s!#(B
-($B!V%$%s%/%k!<%I(B $B%U%!%$%k$,%*!<%W%s$G$-$^$;$s!W$H$$$&%(%i!<$,=P$^$9(B)<br>
-$B$3$N%(%i!<$r=P$5$J$$$h$&$K$9$k$?$a$K$O<!$N@_Dj$r9T$J$C$F2<$5$$!#(B</p>
+FreeWalk のソースコードの中で QvLib という VRML パーサを利用していますが、
+デフォルトではこの QvLib のインクルードファイルを読み込むことができません。
+(「インクルード ファイルがオープンできません」というエラーが出ます)<br>
+このエラーを出さないようにするためには次の設定を行なって下さい。</p>
 <ol>
-<li>$B!V%D!<%k!W%a%K%e!<%P!<$N!V%*%W%7%g%s!W$r3+$/(B
-<li>$B!V%G%#%l%/%H%j!W$N9`L\$rA*Br$9$k(B
-<li>$B!VI=<($9$k%G%#%l%/%H%j!W$r!V%$%s%/%k!<%I%U%!%$%k!W$K$9$k(B
-<li>Qvlib $B$N%$%s%/%k!<%I%U%!%$%k$,F~$C$F$$$k%G%#%l%/%H%j$rDI2C$9$k(B($B2<?^(B)<br>
+<li>「ツール」メニューバーの「オプション」を開く
+<li>「ディレクトリ」の項目を選択する
+<li>「表示するディレクトリ」を「インクルードファイル」にする
+<li>Qvlib のインクルードファイルが入っているディレクトリを追加する(下図)<br>
     <img src="images/include.png" width="483" height="299" alt="QvLib Include Setting">
 </ol>
 
-<dt><strong>$B%G%P%C%0$NJ}K!(B</strong>
+<dt><strong>デバッグの方法</strong>
 <dd><p>
-$BIaDL$N(B Windows $B%"%W%j%1!<%7%g%s$N>l9g$O%V%l!<%/%]%$%s%H$J$I$r(B
-$BMxMQ$9$k$3$H$,$G$-$^$9$,!"(B
-FreeWalk $B$O(B ActiveX $B%3%s%H%m!<%k$rMxMQ$7$F$$$k$N$G!"$3$NJ}K!$O;H$($^$;$s!#(B
-$B$^$?!"%G%P%C%0$K$O!V(BActiveX $B%3%s%H%m!<%k(B $B%F%9%H%3%s%F%J!W$rMxMQ$7$^$9!#(B
-Developer Studio $BFb$G!V<B9T!W$9$k$HB?J,$3$l$,5/F0$5$l$k$O$:$G$9!#(B
-$B$=$N8e!"!VJT=8!W(B-$B!V?7$7$$%3%s%H%m!<%k$NA^F~!W$G(B
-ActiveX $B%3%s%H%m!<%k$r%F%9%H$9$k$3$H$,$G$-$^$9!#(B
+普通の Windows アプリケーションの場合はブレークポイントなどを
+利用することができますが、
+FreeWalk は ActiveX コントロールを利用しているので、この方法は使えません。
+また、デバッグには「ActiveX コントロール テストコンテナ」を利用します。
+Developer Studio 内で「実行」すると多分これが起動されるはずです。
+その後、「編集」-「新しいコントロールの挿入」で
+ActiveX コントロールをテストすることができます。
 </p>
-<dt><strong>$B%G%P%C%0MQ$NJ8;zNs$d?t;z$J$I$r=P$7$?$$(B</strong>
+<dt><strong>デバッグ用の文字列や数字などを出したい</strong>
 <dd>
-<p>$B@h$[$I$N!V(BActiveX $B%3%s%H%m!<%k(B $B%F%9%H%3%s%F%J!WFb$G$b(B
-OutputDebugString $B$r;H$($P%G%P%C%0MQ$NJ8;zNs$N=PNO$,2DG=$G$9!#(B
+<p>先ほどの「ActiveX コントロール テストコンテナ」内でも
+OutputDebugString を使えばデバッグ用の文字列の出力が可能です。
 </p><p>
-$B$^$?!"(BFreeWalk $B$G$O(B DPF $B$H$$$&%G%P%C%0MQ$N%^%/%m$,MQ0U$5$l$F$$$^$9!#(B</p>
+また、FreeWalk では DPF というデバッグ用のマクロが用意されています。</p>
 <pre>
- $BNc(B : DPF("%d,%d\n", x, y);
+ 例 : DPF("%d,%d\n", x, y);
 </pre>
 <p>
-$BMxMQ$9$k$?$a$K$O(B Comm/debug.h $B$r%$%s%/%k!<%II,MW$,$"$j$^$9(B
-$B$^$?!"(BDeveloper Studio $BFb$N!V%S%k%I!W%a%K%e!<$N!V%"%/%F%#%V$J9=@.$N@_Dj!W$G!"(B
-$B!V(BFwvr - Win32 Debug$B!W$rA*Br$7$J$1$l$P$$$1$^$;$s!#(B
-($B$=$&$7$J$$$H%G%P%C%0J8;zNs$,=PNO$5$l$J$$(B)$B!#(B
+利用するためには Comm/debug.h をインクルード必要があります
+また、Developer Studio 内の「ビルド」メニューの「アクティブな構成の設定」で、
+「Fwvr - Win32 Debug」を選択しなければいけません。
+(そうしないとデバッグ文字列が出力されない)。
 <br>
 <img src="images/active.png" width=431 height=213 alt="Active Setting">
 </p>
 </dl>
 
 <hr>
-<a href="index-j.html">$B3+H/MQ%Z!<%8$KLa$k(B</a>
+<a href="index-j.html">開発用ページに戻る</a>
 
 </body>
 </html>

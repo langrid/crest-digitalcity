@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-2022-jp">
 <meta http-equiv="Content-Style-Type" content="text/css">
-<title>FreeWalk:$B3F%b%8%e!<%k$4$H$N3+H/>u67(B</title>
+<title>FreeWalk:各モジュールごとの開発状況</title>
 <style type="text/css"><!--
 H1{
   font-size: 1.5em;
@@ -30,54 +30,54 @@ SPAN.cross{
 
 <hr>
 
-<h1>$B3F%b%8%e!<%k$4$H$NC4Ev<T!&3+H/>u67(B <SMALL>(2000.8.10$B8=:_(B)</SMALL></h1>
+<h1>各モジュールごとの担当者・開発状況 <SMALL>(2000.8.10現在)</SMALL></h1>
 
 <p>
-$B%/%i%$%"%s%H$N%=!<%9$r%b%8%e!<%k$4$H$KJ,3d$7$^$7$?!#(B<BR>
-$B$=$l$>$l$N%b%8%e!<%k$KBP$9$k%U%!%$%k$r5-:\$7$F$$$^$9!#(B<BR>
+クライアントのソースをモジュールごとに分割しました。<BR>
+それぞれのモジュールに対するファイルを記載しています。<BR>
 <BR>
-$B%5!<%P$NJ}$O$^$@40N;$7$F$$$^$;$s!#:#8e$NM=Dj$H$7$F$O(BDS$B$r$J$/$9J}8~$G8!F$$7$F$$$^$9!#(B<BR>
+サーバの方はまだ完了していません。今後の予定としてはDSをなくす方向で検討しています。<BR>
 <BR>
-$B%/%i%$%"%s%H4pK\ItJ,$KDL?.$N4pK\%b%8%e!<%k$rAH$_9~$_$^$7$?!#(B<BR>
-$B%Q%1%C%H$N<u?.$O%/%i%$%"%s%H4pK\$,!"%Q%1%C%H$NAw?.$O$=$l$>$l$N%b%8%e!<%k$,C4Ev$9$k$3$H$H$7$^$9!#(B
+クライアント基本部分に通信の基本モジュールを組み込みました。<BR>
+パケットの受信はクライアント基本が、パケットの送信はそれぞれのモジュールが担当することとします。
 </p>
 
 <p>
-$B%U%!%$%kL>$,9u;z(B : $BB>$N%b%8%e!<%k$+$iFHN)$7$F$$$k%U%!%$%k(B<br>
-<span class="cross">$B%U%!%$%kL>$,@D;z(B</span> : $BB>$N%b%8%e!<%k$H6&M-$7$F$$$k(B
-$B%U%!%$%k(B
+ファイル名が黒字 : 他のモジュールから独立しているファイル<br>
+<span class="cross">ファイル名が青字</span> : 他のモジュールと共有している
+ファイル
 </p>
 
 <hr>
 
-<h2>$B%G%#%l%/%H%j%5!<%P(B</h2>
+<h2>ディレクトリサーバ</h2>
 
-<h3>$B%G%#%l%/%H%j%5!<%P4pK\(B ($B0f>e(B)</h3>
+<h3>ディレクトリサーバ基本 (井上)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
   <li><span class="cross">FW_DSCS/fw_ds.cpp</span>
   <li>FW_DSCS/default_server.h
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B6u4V%5!<%P>pJsG[?.(B ($B0f>e(B)</h3>
+<h3>空間サーバ情報配信 (井上)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
   <li><span class="cross">FW_DSCS/fw_ds.cpp</span>
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h2>$B6u4V%5!<%P(B</h2>
+<h2>空間サーバ</h2>
 
-<h3>$B6u4V%5!<%P4pK\(B ($B0f>e(B)</h3>
+<h3>空間サーバ基本 (井上)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
   <li>FW_DSCS/fwcsmain.cpp
   <li><span class="cross">FW_CSDS/fw_cs.cpp</span>
@@ -85,64 +85,64 @@ SPAN.cross{
   <li>FW_DSCS/CmdLine.h
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B>WFMH=Dj(B ($B0f>e(B)</h3>
+<h3>衝突判定 (井上)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
-  <li>($B8=:_$J$7(B)
+  <li>(現在なし)
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B%7!<%s5-=R%G!<%?G[?.(B ($B1)2O(B)</h3>
+<h3>シーン記述データ配信 (羽河)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
-  <li>($B8=:_$J$7(B)
+  <li>(現在なし)
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B%a%s%P>pJsG[?.(B ($B0f>e(B)</h3>
+<h3>メンバ情報配信 (井上)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
   <li><span class="cross">FW_CSDS/fw_cs.cpp</span>
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B2hA|G[?.(B ($BG__7(B)</h3>
+<h3>画像配信 (梅澤)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
-  <li>($B8=:_$J$7(B)
+  <li>(現在なし)
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B2;@<G[?.(B ($B%7%e!<%j%s(B)</h3>
+<h3>音声配信 (シューリン)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
-  <li>($B8=:_$J$7(B)
+  <li>(現在なし)
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h2>$B%/%i%$%"%s%H(B($B%(!<%8%'%s%H(B,$B%"%P%?!<(B)</h2>
+<h2>クライアント(エージェント,アバター)</h2>
 
-<h3>$B%/%i%$%"%s%H4pK\(B ($B0f>e(B)</h3>
+<h3>クライアント基本 (井上)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
   <li>Main/FreeWalk.cpp
   <li>Main/FreeWalk.h
@@ -162,109 +162,109 @@ SPAN.cross{
   <li>Communication/connect.h
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B0\F0(B ($B;v6HCD(B)</h3>
+<h3>移動 (事業団)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
   <li>Movement/Movement.cpp
   <li>Movement/Movement.h
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$BHrFq%(!<%8%'%s%H(B ($B0f>e(B)</h3>
+<h3>避難エージェント (井上)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
-  <li>CrowdAgent/ $B0J2<(B ($B8=:_$J$7(B)
+  <li>CrowdAgent/ 以下 (現在なし)
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$BM6F3%(!<%8%'%s%H(B ($BCf_7(B)</h3>
+<h3>誘導エージェント (中澤)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
-  <li>HelperAgent/ $B0J2<(B
+  <li>HelperAgent/ 以下
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B2;@<H/OC(B &amp; $B%8%'%9%A%c(B ($BCf_7(B)</h3>
+<h3>音声発話 &amp; ジェスチャ (中澤)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 
 <ul>
   <li>Speaking/PlayWave.cpp
   <li>Speaking/PlayWave.h
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B2hLLIA2h(B ($B2<5H(B)</h3>
+<h3>画面描画 (下吉)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
   <li>Graphics/OpenGL.cpp</span>
   <li>Graphics/OpenGL.h</span>
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$BJb9T%"%K%a(B ($B>>K\(B)</h3>
+<h3>歩行アニメ (松本)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
-  <li>Walking/ $B0J2<(B ($B8=:_$J$7(B)
+  <li>Walking/ 以下 (現在なし)
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B%7!<%s5-=R%G!<%?DL?.(B ($B1)2O(B)</h3>
+<h3>シーン記述データ通信 (羽河)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
-  <li>Space/ $B0J2<(B ($B8=:_$J$7(B)
+  <li>Space/ 以下 (現在なし)
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>VRML$BJQ49(B ($B2<5H(B)</h3>
+<h3>VRML変換 (下吉)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
   <li>Graphics/Vrml.cpp
   <li>Graphics/Vrml.h
-  <li>Graphics/Qvlib/ $B0J2<(B 
+  <li>Graphics/Qvlib/ 以下 
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B%a%s%P>pJs4IM}(B ($B0f>e(B)</h3>
+<h3>メンバ情報管理 (井上)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
   <li>Members/LocationConnection.cpp</span>
   <li>Members/LocationConnection.h</span>
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B2hA|DL?.(B ($BG__7(B)</h3>
+<h3>画像通信 (梅澤)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
   <li>Video/Video.cpp
   <li>Video/Video.h
@@ -277,22 +277,22 @@ SPAN.cross{
   <li>Video/Capture.h
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B2;@<G'<1(B ($BCf_7(B)</h3>
+<h3>音声認識 (中澤)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
-  <li>Hearing/ $B0J2<(B
+  <li>Hearing/ 以下
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
-<h3>$B2;@<DL?.(B ($B%7%e!<%j%s(B)</h3>
+<h3>音声通信 (シューリン)</h3>
 
-$B%U%!%$%k(B :
+ファイル :
 <ul>
   <li>Audio/Audio.cpp
   <li>Audio/Audio.h
@@ -302,11 +302,11 @@ SPAN.cross{
   <li>Audio/AudioConnection.h</span>
 </ul>
 <p>
-$BJQ99MzNr(B :
+変更履歴 :
 </p>
 
 <hr>
-<a href="index-j.html">$B3+H/MQ%Z!<%8$KLa$k(B</a>
+<a href="index-j.html">開発用ページに戻る</a>
 
 </body>
 </html>

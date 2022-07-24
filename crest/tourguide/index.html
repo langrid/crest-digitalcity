@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html lang="ja">
 <head>
-<title>$BBPOC%(!<%8%'%s%H(B</title>
+<title>対話エージェント</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-2022-jp">
 <style type="text/css">
 <!--
@@ -13,47 +13,47 @@ a       {text-decoration:none;}
 
 <body bgcolor="#FFFFFF">
 <p>Japanese / <a href="index-e.html">English</a></p>
-<h1 align="center">$BBPOC%(!<%8%'%s%H(B</h1>
-<h2>$B35MW(B</h2>
-<p>$BBPOC;vNc$+$iBPOC%b%G%k$r3X=,$9$k$3$H$G!$BPOC%Y!<%9$G4Q8w0FFb$r9T$&%(!<%8%'%s%H$r9=C[$9$k!%K\%0%k!<%W$G$O!$4Q8w0FFb%(!<%8%'%s%H3+H/$KI,MW$J<!$N(B2$B%F!<%^$r?J9TCf$G$"$k!%(B</p>
+<h1 align="center">対話エージェント</h1>
+<h2>概要</h2>
+<p>対話事例から対話モデルを学習することで，対話ベースで観光案内を行うエージェントを構築する．本グループでは，観光案内エージェント開発に必要な次の2テーマを進行中である．</p>
 <table width="100%" border="0">
   <tr>
     <td width="50%">
-      <div align="center"><img src="fsm.png" width="350" alt="$BBPOC%b%G%k(B" /></div>
-      <div align="center">$B?^(B1 $BBPOC%b%G%k(B($BBPOC3+;O;~$N0lIt(B)</div>
+      <div align="center"><img src="fsm.png" width="350" alt="対話モデル" /></div>
+      <div align="center">図1 対話モデル(対話開始時の一部)</div>
     </td>
     <td width="50%"> 
-      <h3>1. $B;vNc$+$i$NA2<!E*$JBPOC%b%G%k3X=,(B</h3>
-      $B$"$kFCDj$N%?%9%/$NBPOC$r<}=8$9$k$3$H$O:$Fq$G$"$k$?$a!$(B $B0lEY$KB?NL$N3X=,%G!<%?$r=8$a$k$3$H$O$G$-$J$$!%$7$?$,$C$F!$<}=8$5$l$?BPOC;vNc$+$iBPOC%b%G%k$r3X=,$9$k>l9g!$;vNc$,A}2C$9$k$4$H$K$=$NETEY3X=,$9$kI,MW$,@8$8$k!%$7$+$7!$Kh2s3X=,$r$d$jD>$9$N$O%3%9%H$,$+$+$k$?$a!$A2<!E*$J3X=,$G$O:9J,$@$1$r3X=,$G$-$k$3$H$,K>$^$7$$!%(B<br>
-      $BK\%F!<%^$G$O!$BPOC%b%G%k$H$7$F(BPDFA(Probabilistic DFA)$B$rMQ$$!$=>Mh8&5f$G$ODs0F$5$l$J$+$C$?(BPDFA$B$NA2<!E*3X=,%"%k%4%j%:%`$rDs0F$7!$$=$N8z2L$r=>Mh$N%"%k%4%j%:%`$HHf3S!&I>2A$9$k!%(B 
+      <h3>1. 事例からの漸次的な対話モデル学習</h3>
+      ある特定のタスクの対話を収集することは困難であるため， 一度に多量の学習データを集めることはできない．したがって，収集された対話事例から対話モデルを学習する場合，事例が増加するごとにその都度学習する必要が生じる．しかし，毎回学習をやり直すのはコストがかかるため，漸次的な学習では差分だけを学習できることが望ましい．<br>
+      本テーマでは，対話モデルとしてPDFA(Probabilistic DFA)を用い，従来研究では提案されなかったPDFAの漸次的学習アルゴリズムを提案し，その効果を従来のアルゴリズムと比較・評価する． 
       <br>
     </td>
   </tr>
   <tr>
     <td width="50%">
-      <div align="center"><img src="woz.png" alt="WOZ$B%$%s%?%U%'!<%9(B" /></div>
-      <div align="center">$B?^(B2 WOZ$B%$%s%?%U%'!<%9(B</div>
+      <div align="center"><img src="woz.png" alt="WOZインタフェース" /></div>
+      <div align="center">図2 WOZインタフェース</div>
     </td>
     <td width="50%"> 
-      <h3>2. Wizard of Oz$BK!$rMQ$$$?%G%8%?%k%7%F%#$N4Q8w0FFb%(!<%8%'%s%H(B</h3>
-      <p> $B;vNc$N<}=8$HBPOC%b%G%k$N3X=,$r7+$jJV$9$3$H$K$h$j!$=y!9$KBPOCG=NO$r3MF@$9$k4Q8w0FFb%(!<%8%'%s%H$r9=C[$9$k!%$3$N%(!<%8%'%s%H$N9=C[$O<!$N(B2$B$D$N%9%F%C%W$r7+$jJV$9$3$H$K$h$j9T$o$l$k!%(B</p>
+      <h3>2. Wizard of Oz法を用いたデジタルシティの観光案内エージェント</h3>
+      <p> 事例の収集と対話モデルの学習を繰り返すことにより，徐々に対話能力を獲得する観光案内エージェントを構築する．このエージェントの構築は次の2つのステップを繰り返すことにより行われる．</p>
       <ul>
-        <li>Wizard of Oz$BK!$rMQ$$$?BPOC;vNc<}=8(B<br>
-          $B0FFb%?%9%/$K4X$9$kBPOC$r(BWizard of Oz$BK!$rMQ$$$F9T$&!%:G=i!$%7%9%F%`$N?dO@7k2L$OEv$F$K$J$i$J$$$?$a!$B?$/$NH/OC$r(BWizard$B$,9T$&$,!$BPOC%b%G%k$,@.D9$9$k$K=>$$!$(BWizard$B$K$h$kJd=u$O$[$H$s$II,MW$J$/$J$k!%(B</li>
-        <li>$B;vNc$+$i$NBPOC%b%G%k3X=,(B<br>
-          $B>e=R$NBPOC%b%G%k3X=,%"%k%4%j%:%`$rMQ$$$F!$;vNc$+$i8=:_$NBPOC%b%G%k$r3X=,$9$k!%(B</li>
+        <li>Wizard of Oz法を用いた対話事例収集<br>
+          案内タスクに関する対話をWizard of Oz法を用いて行う．最初，システムの推論結果は当てにならないため，多くの発話をWizardが行うが，対話モデルが成長するに従い，Wizardによる補助はほとんど必要なくなる．</li>
+        <li>事例からの対話モデル学習<br>
+          上述の対話モデル学習アルゴリズムを用いて，事例から現在の対話モデルを学習する．</li>
       </ul>
-      <p>$BK\%F!<%^$G$O!$$3$l$i$N5!9=$rHw$($?(BWeb$B%Y!<%9$NBPOC%(!<%8%'%s%H$r<BAu$7!$5~ET$N4Q8w0FFb$r%F!<%^$K;vNc<}=8!$3X=,$r9T$&!%(B <br>
+      <p>本テーマでは，これらの機構を備えたWebベースの対話エージェントを実装し，京都の観光案内をテーマに事例収集，学習を行う． <br>
       </p>
 </td>
   </tr>
 </table>
-<h2>$B%a%s%P!<(B</h2>
+<h2>メンバー</h2>
 <blockquote> 
-  <p>$B2,K\(B $B>;G7(B ($B5~ETBg3X(B) okamoto@kuis.kyoto-u.ac.jp</p>
-  <p>$B;3Cf(B $B?.IR(B ($B5~ETBg3X(B) nobutosi@kuis.kyoto-u.ac.jp</p>
+  <p>岡本 昌之 (京都大学) okamoto@kuis.kyoto-u.ac.jp</p>
+  <p>山中 信敏 (京都大学) nobutosi@kuis.kyoto-u.ac.jp</p>
 </blockquote>
-<h2>$BH/I=O@J8(B</h2>
+<h2>発表論文</h2>
 <ul>
   <li>
     Masayuki Okamoto, Yeonsoo Yang and Toru Ishida,
@@ -66,16 +66,16 @@ a       {text-decoration:none;}
     Springer-Verlag, 2001.
   </li>
 </ul>
-<h2>$BO"Mm@h(B</h2>
+<h2>連絡先</h2>
 <blockquote>
   <p>dialog-agent@lab7.kuis.kyoto-u.ac.jp</p>
 </blockquote>
-<h2>$B%j%s%/(B</h2>
+<h2>リンク</h2>
 <blockquote>
-  <p><a href="http://www.lab7.kuis.kyoto-u.ac.jp/j-index.html">$B5~ETBg3XBg3X1!>pJs3X8&5f2J<R2q>pJs3X@l96(B 
-    $B@PED8&5f<<(B</a></p>
-  <p><a href="http://www.digitalcity.jst.go.jp/">$B2J3X5;=Q?66=;v6HCD(B $B%G%8%?%k%7%F%#8&5f%;%s%?!<(B</a></p>
+  <p><a href="http://www.lab7.kuis.kyoto-u.ac.jp/j-index.html">京都大学大学院情報学研究科社会情報学専攻 
+    石田研究室</a></p>
+  <p><a href="http://www.digitalcity.jst.go.jp/">科学技術振興事業団 デジタルシティ研究センター</a></p>
 </blockquote>
-<p><a href="http://www.lab7.kuis.kyoto-u.ac.jp/laboratory/projects/dialog-agent/index.html">$BFbIt%Z!<%8(B</a> ($B%Q%9%o!<%I$,I,MW(B)</p>
+<p><a href="http://www.lab7.kuis.kyoto-u.ac.jp/laboratory/projects/dialog-agent/index.html">内部ページ</a> (パスワードが必要)</p>
 </body>
 </html>

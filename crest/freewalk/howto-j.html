@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-2022-jp">
 <meta http-equiv="Content-Style-Type" content="text/css">
-<title>FreeWalk:$B<B9TJ}K!(B</title>
+<title>FreeWalk:実行方法</title>
 <style type="text/css"><!--
 H1{
   font-size: 1.5em;
@@ -28,76 +28,76 @@ SPAN.notice{
 
 <hr>
 
-<h1>$B<B9TJ}K!(B</h1>
+<h1>実行方法</h1>
 
-<h2>DS $B$H(B CS $B$N5/F0(B</h2>
+<h2>DS と CS の起動</h2>
 
-FreeWalk $B$r<B9T$5$;$k$?$a$K$O!"$^$:6u4V4IM}%5!<%P(B(Directory Server : DS)$B$H(B
-$B6u4V%5!<%P(B(Communication Server : CS)$B$r5/F0$5$;$kI,MW$,$"$j$^$9!#(B
-DS $B$*$h$S(B CS $B$O(B Windows$B!"(BUNIX (Solaris $B$GF0:n3NG':Q(B) $BN>J}$GF0$-$^$9!#(B
+FreeWalk を実行させるためには、まず空間管理サーバ(Directory Server : DS)と
+空間サーバ(Communication Server : CS)を起動させる必要があります。
+DS および CS は Windows、UNIX (Solaris で動作確認済) 両方で動きます。
 <br>
-<span class="notice">$B"((B nijo $B$G$O(B DS(port 12345), CS($B6u4VL>(B : FreeWalkSpace)
-$B$,F0$$$F$$$^$9$N$G!"$3$NA`:n$OI,MW$"$j$^$;$s!#(B</span>
+<span class="notice">※ nijo では DS(port 12345), CS(空間名 : FreeWalkSpace)
+が動いていますので、この操作は必要ありません。</span>
 
 <dl>
-<dt><strong>Windows $B$N>l9g(B</strong>
+<dt><strong>Windows の場合</strong>
 <dd>
-<p>DS : Output\Release $BFb$N(B FW_DS $B$r<B9T$7$F2<$5$$!#(B</p>
-<p>CS : $B%3%^%s%I%W%m%s%W%H$r5/F0$7!"(B
-$B%G%#%l%/%H%j(B Output\Release $BFb$K0\F0$7$F<!$N%3%^%s%I$r<B9T$7$F2<$5$$!#(B</p>
+<p>DS : Output\Release 内の FW_DS を実行して下さい。</p>
+<p>CS : コマンドプロンプトを起動し、
+ディレクトリ Output\Release 内に移動して次のコマンドを実行して下さい。</p>
 <pre>
-FW_CS [$B6u4VL>(B] [DS $B$,5/F0$7$F$$$k%^%7%s$N(B IP $B%"%I%l%9(B] [DS $B$N%]!<%HHV9f(B(12345)]
-($BNc(B : FW_CS FreeWalkSpace 130.54.21.152 12345) 
+FW_CS [空間名] [DS が起動しているマシンの IP アドレス] [DS のポート番号(12345)]
+(例 : FW_CS FreeWalkSpace 130.54.21.152 12345) 
 </pre>
-<dt><strong>UNIX $B$N>l9g(B</strong>
+<dt><strong>UNIX の場合</strong>
 <dd>
-<p>$B$^$:!"%G%#%l%/%H%j(B FW_DSCS $B$H(B Comm $B$r(B make $B$,<B9T2DG=$J>l=j$K%3%T!<$7$F!"(B
-make $B$r<B9T$7$F2<$5$$!#(Bfw_ds $B$H(B fw_cs $B$,%3%s%Q%$%k$5$l$^$9!#$=$N8e!"(B</p>
-<p>DS : fw_ds $B$r<B9T$7$F2<$5$$(B</p>
-<p>CS : fw_cs $B$r<!$N0z?t$G<B9T$7$F2<$5$$!#(B</p>
+<p>まず、ディレクトリ FW_DSCS と Comm を make が実行可能な場所にコピーして、
+make を実行して下さい。fw_ds と fw_cs がコンパイルされます。その後、</p>
+<p>DS : fw_ds を実行して下さい</p>
+<p>CS : fw_cs を次の引数で実行して下さい。</p>
 <pre>
-fw_cs [$B6u4VL>(B] [DS $B$,5/F0$7$F$$$k%^%7%s$N(B IP $B%"%I%l%9(B] [DS $B$N%]!<%HHV9f(B(12345)]
-($BNc(B : % fw_cs FreeWalkSpace 130.54.21.152 12345) 
+fw_cs [空間名] [DS が起動しているマシンの IP アドレス] [DS のポート番号(12345)]
+(例 : % fw_cs FreeWalkSpace 130.54.21.152 12345) 
 </pre>
 </dl>
 
-<h2><a name="iesetup">InternetExplorer $B$G$N@_Dj(B</a></h2>
+<h2><a name="iesetup">InternetExplorer での設定</a></h2>
 
-FreeWalk $B$O(B ActiveX $B$rMxMQ$7$F$*$j!"(B
-$BI8=`$N@_Dj$N$^$^$G$O%;%-%e%j%F%#>e<B9T$,$G$-$^$;$s!#(B
-$B$h$C$F:G=i$K(B InternetExplorer $B$N@_Dj$r$9$kI,MW$,$"$j$^$9!#(B
+FreeWalk は ActiveX を利用しており、
+標準の設定のままではセキュリティ上実行ができません。
+よって最初に InternetExplorer の設定をする必要があります。
 
 <ol>
-<li>InternetExplorer$B$rN)$A>e$2$k!#(B
-<li>$B!V%D!<%k!W%a%K%e!<$N!V%$%s%?!<%M%C%H%*%W%7%g%s!W$r3+$/(B
-<li>$B!V%;%-%e%j%F%#!W$NCf$N!V?.Mj:Q$_$N%5%$%H!W$r%/%j%C%/$7!"(B
-$B$=$NCf$N!V%5%$%H!W$rA*$V!#(B<br>
+<li>InternetExplorerを立ち上げる。
+<li>「ツール」メニューの「インターネットオプション」を開く
+<li>「セキュリティ」の中の「信頼済みのサイト」をクリックし、
+その中の「サイト」を選ぶ。<br>
 <img src="images/option.png" width=471 height=419 alt="Option Menu">
-<li>$B!V<!$N(B Web $B%5%$%H$r%>!<%s$KDI2C$9$k!W$NCf$K@h$[$I(B fwvr.ocx $B$r%3%T!<$7$?(B
-$B%[%9%H$rF~NO$7!"!VDI2C!W$r2!$9(B<br>
-($BFs>r%i%\$G5/F0$9$k>l9g$O2<5-$N?^$N$h$&$KF~NO$7$F2<$5$$(B)
-<li>$B!V$3$N%>!<%s$N%5%$%H$K$O$9$Y$F%5!<%P$N3NG'(B(https:)$B$rI,MW$H$9$k!W$N(B
-$B%A%'%C%/$r30$9!#(B<br>
+<li>「次の Web サイトをゾーンに追加する」の中に先ほど fwvr.ocx をコピーした
+ホストを入力し、「追加」を押す<br>
+(二条ラボで起動する場合は下記の図のように入力して下さい)
+<li>「このゾーンのサイトにはすべてサーバの確認(https:)を必要とする」の
+チェックを外す。<br>
 <img src="images/site.png" width=447 height=312 alt="Security Setting">
-<li>OK $B$r2!$7$F@_Dj$rJ]B8$9$k!#(B
+<li>OK を押して設定を保存する。
 </ol>
 
-$B$3$l$G(B FreeWalk $B$r5/F0$5$;$k=`Hw$,$G$-$^$7$?!#(B
+これで FreeWalk を起動させる準備ができました。
 
-<h2>FreeWalk $B$N5/F0(B</h2>
+<h2>FreeWalk の起動</h2>
 
-$B5/F0$9$kA0$K>e5-$N@_Dj$r$7$F!"%5!<%P$r5/F0$7$?$3$H$r3NG'$7$F2<$5$$!#(B
+起動する前に上記の設定をして、サーバを起動したことを確認して下さい。
 
 <ol>
-<li>fwvrocx.html $B$r3+$/(B (<a href="fwvrocx.html">$B$3$3$G$b(BVer2.2$B$,5/F0$G$-$^$9(B</a>)
-<li>$B0J2<$N%@%$%"%m%0%\%C%/%9$,8=$o$l$k$N$G!"%f!<%6L>$J$I$r;XDj$9$k!#(B<br>
+<li>fwvrocx.html を開く (<a href="fwvrocx.html">ここでもVer2.2が起動できます</a>)
+<li>以下のダイアログボックスが現われるので、ユーザ名などを指定する。<br>
 <img src="images/login.png" width=263 height=354 alt="FreeWalk Dialog Box">
-<li>$B!V(BOK$B!W$r2!$;$P(B FreeWalk $B$,5/F0$7$^$9!#(B<br>
-    ($B%5!<%P$K@\B3$G$-$J$$>l9g$O!V(BCS$B$K@\B3$G$-$^$;$s!W$H$$$&%a%C%;!<%8$,=P$F$-$^$9(B)
+<li>「OK」を押せば FreeWalk が起動します。<br>
+    (サーバに接続できない場合は「CSに接続できません」というメッセージが出てきます)
 </ol>
 
 <hr>
-<a href="index-j.html">$B3+H/MQ%Z!<%8$KLa$k(B</a>
+<a href="index-j.html">開発用ページに戻る</a>
 
 </body>
 </html>
