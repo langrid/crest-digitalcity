@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"><html><head>
+    <meta http-equiv="Content-Type" content="text/html;charset=euc-jp"><title>Q Language</title>
+    
+    <!--<base
+    here="http://www.lab7.kuis.kyoto-u.ac.jp/~yohei/V4/index.html"
+    target="_self">--></head>
+
+
+  <body>
+    <table width="600" align="center">
+	<tbody><tr>
+	  <td>
+	    <center>
+	      <h2>
+		Microsoft Agent - Q インタフェースの<br>
+		起動方法
+	      </h2>
+	    </center>
+	    <hr>
+	    <ul>
+	    <li>
+	      <h4>起動方法</h4>
+	      <p>
+		<font color="red">      
+		  実行環境 : IBM/PC互換機上で動作するWindows 2000，Windows 98<br>
+		  (Windows NT4.0/XP/Me については未確認)<br>
+		  Webにアクセス可能なネットワーク環境
+		</font>
+		<br>
+		<br>
+	      </p><ol>
+		<li>
+		  <p>
+		    まず
+		    <a href="download1.html">
+		      ここから
+		    </a>
+		    Q処理系パック(zipファイル)をダウンロードする.<br>
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    ダウンロードしたQファイルを解凍する．
+		  <p>    
+	    </li>  
+
+    <li>
+      <p>
+   	   解凍したディレクトリにある<font color = red size = +2 >runMSAgent.bat</font> (もしくは /Program/MSAgent.exe )を<font color = red size = +2 >ダブルクリック</font>すると，Microsoft Agentが起動し,音声エンジンで喋りながらシナリオの実行を始める．<br><br>
+	  (MicrosoftAgentのキャラクターが登場しなかったり,喋らない時は<a href="#install">こちら</a>.)
+	<br><br>
+      
+      <ul>       
+      <li>
+      <p>起動されるシナリオは,初期設定では/Data/scenario-msagent/ipc.qが実行される.<br>
+        /Property/MSAgent.ini の指定を変更することにより,他のシナリオも起動可能である.<br>
+  (詳しくは/document/MSAgent_ver1_read_me.docを参照のこと. )
+      </p>
+      </li>
+      </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+	シナリオ実行後は,エージェントを右クリックし,メニューから「終了」を選び,終了確認で「はい」を選ぶと終了する．
+      </p>
+    </li>
+    </ol>
+    <br><br>
+    <p>
+    起動に関する更に詳しい情報は,/document  以下にあるMSAgent_ver1_read_me.docおよびgui-manual.pdfを御覧ください.
+    </p>
+
+
+
+	<li><h4>FAQ</h4></li> 
+
+	
+	<ul>
+	    <a name="install"><li><h4>MS Agentのキャラクターが登場しない,また喋らない.</h4></li></a>
+	    <p>
+	    Windows95などでは,Microsoft Agentが標準でインストールされません.<br>
+        (Windows98/2000/Me/XPでは標準でインストールされています.)<br>
+		また,音声合成エンジンは標準ではインストールされないため,キャラクターを音声合成で喋らせるためには音声合成エンジンをインストールする必要があります.<br>
+	    以下の手順に従い,Microsoft Agentと音声合成エンジンをインストールしてください.
+		</p>
+
+		<ol>
+	      <li> 
+		<p>
+		  <a href="download/MSagent.exe">
+		    Microsoft Agent本体
+		  </a>
+		  をダウンロードする．<br>
+		  (Windows98/2000/Meでは必要なし)
+		</p>
+	      </li>
+	      <li>
+		<p>
+		  使用するMicrosoft Agentのキャラクタをインストールする.<br>
+		  ちなみにWindows 98/2000 では，標準でMerlin (魔法使い)が
+		  入っている．<br>
+		  必要であれば，
+		  <a href="download/Peedy.exe">
+		    オウムのPeedy  
+		  </a>
+		  をインストールすることもできる．また，
+		  <a href="http://www.microsoft.com/msagent/" target="_blank">
+		    Microsoftのサイト
+		  </a>
+		  からRobby，Genieをダウンロードすることもできる. 
+		</p>
+	      </li>
+	      <li>
+		<p>
+		  以下の3つ実行ファイルをダウンロードし,音声合成エンジン(L&amp;H社製，フリー版)をインストールする.
+		</p><ul>
+		  <li>
+		    <a href="download/spchapi.exe">
+		      音声合成エンジン(共通)    
+		    </a>
+		  </li>
+		  <li>
+		    <a href="download/lhttsjpj.exe">
+		      日本語音声合成エンジン
+		    </a>
+		  </li>
+		  <li>
+		    <a href="download/spchcpl.exe">
+		      音声合成設定用コントロールパネル
+		    </a>
+		  </li>
+		</ul>
+	      
+	      </li>
+	    </ol>
+            <p>
+	    ただし，何らかの理由によりWebページにアクセスでき
+	    ない場合は，
+	    <a href="http://www.microsoft.com/msagent/" target="_blank">
+	      Microsoft社の公式サイト
+	    </a>
+	    のページ左端にあるメニュー "Downloads" からそれぞれダウンロード可能です．
+	    </p> 
+	</li>
+   </ul>
+   </td></tr> </tbody></table>
+  </body></html>
+
+
+
+
+
+
+
+
+
+
+

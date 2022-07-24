@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-2022-jp">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>FreeWalk:実行方法</title>
+<style type="text/css"><!--
+H1{
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 0px;
+  color:blue;
+}
+H2{
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 0px;
+  border-width: 1px;
+}
+SPAN.notice{
+  color:red;
+}
+--></style>
+</head>
+<body>
+
+<hr>
+
+<h1>実行方法</h1>
+
+<h2>DS と CS の起動</h2>
+
+FreeWalk を実行させるためには、まず空間管理サーバ(Directory Server : DS)と
+空間サーバ(Communication Server : CS)を起動させる必要があります。
+DS および CS は Windows、UNIX (Solaris で動作確認済) 両方で動きます。
+<br>
+<span class="notice">※ nijo では DS(port 12345), CS(空間名 : FreeWalkSpace)
+が動いていますので、この操作は必要ありません。</span>
+
+<dl>
+<dt><strong>Windows の場合</strong>
+<dd>
+<p>DS : Output\Release 内の FW_DS を実行して下さい。</p>
+<p>CS : コマンドプロンプトを起動し、
+ディレクトリ Output\Release 内に移動して次のコマンドを実行して下さい。</p>
+<pre>
+FW_CS [空間名] [DS が起動しているマシンの IP アドレス] [DS のポート番号(12345)]
+(例 : FW_CS FreeWalkSpace 130.54.21.152 12345) 
+</pre>
+<dt><strong>UNIX の場合</strong>
+<dd>
+<p>まず、ディレクトリ FW_DSCS と Comm を make が実行可能な場所にコピーして、
+make を実行して下さい。fw_ds と fw_cs がコンパイルされます。その後、</p>
+<p>DS : fw_ds を実行して下さい</p>
+<p>CS : fw_cs を次の引数で実行して下さい。</p>
+<pre>
+fw_cs [空間名] [DS が起動しているマシンの IP アドレス] [DS のポート番号(12345)]
+(例 : % fw_cs FreeWalkSpace 130.54.21.152 12345) 
+</pre>
+</dl>
+
+<h2><a name="iesetup">InternetExplorer での設定</a></h2>
+
+FreeWalk は ActiveX を利用しており、
+標準の設定のままではセキュリティ上実行ができません。
+よって最初に InternetExplorer の設定をする必要があります。
+
+<ol>
+<li>InternetExplorerを立ち上げる。
+<li>「ツール」メニューの「インターネットオプション」を開く
+<li>「セキュリティ」の中の「信頼済みのサイト」をクリックし、
+その中の「サイト」を選ぶ。<br>
+<img src="images/option.png" width=471 height=419 alt="Option Menu">
+<li>「次の Web サイトをゾーンに追加する」の中に先ほど fwvr.ocx をコピーした
+ホストを入力し、「追加」を押す<br>
+(二条ラボで起動する場合は下記の図のように入力して下さい)
+<li>「このゾーンのサイトにはすべてサーバの確認(https:)を必要とする」の
+チェックを外す。<br>
+<img src="images/site.png" width=447 height=312 alt="Security Setting">
+<li>OK を押して設定を保存する。
+</ol>
+
+これで FreeWalk を起動させる準備ができました。
+
+<h2>FreeWalk の起動</h2>
+
+起動する前に上記の設定をして、サーバを起動したことを確認して下さい。
+
+<ol>
+<li>fwvrocx.html を開く (<a href="fwvrocx.html">ここでもVer2.2が起動できます</a>)
+<li>以下のダイアログボックスが現われるので、ユーザ名などを指定する。<br>
+<img src="images/login.png" width=263 height=354 alt="FreeWalk Dialog Box">
+<li>「OK」を押せば FreeWalk が起動します。<br>
+    (サーバに接続できない場合は「CSに接続できません」というメッセージが出てきます)
+</ol>
+
+<hr>
+<a href="index-j.html">開発用ページに戻る</a>
+
+</body>
+</html>
+

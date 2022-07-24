@@ -1,0 +1,18 @@
+○ コンパイルに必要なもの
+
+  ○ Microsoft Visual Studio 6.0
+  ○ cygwin(http://sources.redhat.com/cygwin/)
+
+     デフォルトではインストールされないが、以下のパッケージがコンパ
+     イル時に必要になる。
+     
+     ・zip
+     ・unzip
+
+○ コンパイルの方法
+
+   cygwin のコンソールにて
+
+   $ ./build.sh
+
+   を実行すると、../q-YYYY-MM-DD-N.zip が作成される。

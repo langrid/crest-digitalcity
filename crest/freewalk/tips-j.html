@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-2022-jp">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>FreeWalk:開発のためのTips</title>
+<style type="text/css"><!--
+H1{
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 0px;
+  color:blue;
+}
+--></style>
+</head>
+<body>
+
+<hr>
+
+<h1>開発のための Tips <SMALL>(2000.8.15更新)</SMALL></h1>
+
+<dl>
+<dt><strong>新しいマシンで FreeWalk をコンパイルする時</strong>
+<dd><p>
+FreeWalk のソースコードの中で QvLib という VRML パーサを利用していますが、
+デフォルトではこの QvLib のインクルードファイルを読み込むことができません。
+(「インクルード ファイルがオープンできません」というエラーが出ます)<br>
+このエラーを出さないようにするためには次の設定を行なって下さい。</p>
+<ol>
+<li>「ツール」メニューバーの「オプション」を開く
+<li>「ディレクトリ」の項目を選択する
+<li>「表示するディレクトリ」を「インクルードファイル」にする
+<li>Qvlib のインクルードファイルが入っているディレクトリを追加する(下図)<br>
+    <img src="images/include.png" width="483" height="299" alt="QvLib Include Setting">
+</ol>
+
+<dt><strong>デバッグの方法</strong>
+<dd><p>
+普通の Windows アプリケーションの場合はブレークポイントなどを
+利用することができますが、
+FreeWalk は ActiveX コントロールを利用しているので、この方法は使えません。
+また、デバッグには「ActiveX コントロール テストコンテナ」を利用します。
+Developer Studio 内で「実行」すると多分これが起動されるはずです。
+その後、「編集」-「新しいコントロールの挿入」で
+ActiveX コントロールをテストすることができます。
+</p>
+<dt><strong>デバッグ用の文字列や数字などを出したい</strong>
+<dd>
+<p>先ほどの「ActiveX コントロール テストコンテナ」内でも
+OutputDebugString を使えばデバッグ用の文字列の出力が可能です。
+</p><p>
+また、FreeWalk では DPF というデバッグ用のマクロが用意されています。</p>
+<pre>
+ 例 : DPF("%d,%d\n", x, y);
+</pre>
+<p>
+利用するためには Comm/debug.h をインクルード必要があります
+また、Developer Studio 内の「ビルド」メニューの「アクティブな構成の設定」で、
+「Fwvr - Win32 Debug」を選択しなければいけません。
+(そうしないとデバッグ文字列が出力されない)。
+<br>
+<img src="images/active.png" width=431 height=213 alt="Active Setting">
+</p>
+</dl>
+
+<hr>
+<a href="index-j.html">開発用ページに戻る</a>
+
+</body>
+</html>
+
